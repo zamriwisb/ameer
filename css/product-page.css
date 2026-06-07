@@ -1,0 +1,421 @@
+/* ============================================================
+   Single Product Page — Ameer (Sunny V2 theme add-on)
+   Reuses base.css + sunny-v2.css tokens, buttons, dividers.
+   Class names mirror WooCommerce single-product markup.
+   ============================================================ */
+
+/* ====== Section background recipes (mirror homepage chain) ====== */
+/* product-main = sky · benefits = meadow · ingredients = sun ·
+   dosage = cream · reviews = river · faq = social-blue · related = cream */
+
+.theme-sunny .product-main {
+  background:
+    radial-gradient(ellipse at 70% 15%, rgba(253,203,70,0.18) 0%, transparent 60%),
+    linear-gradient(180deg, var(--sky) 0%, var(--sky-2) 100%);
+  padding-top: 8rem !important;
+  padding-bottom: 8rem !important;
+}
+.theme-sunny .benefits {
+  background-color: var(--meadow);
+  background-image:
+    linear-gradient(180deg, var(--meadow) 0%, var(--meadow) 90px, transparent 240px),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.18) 0%, transparent 35%);
+  padding-top: 5rem; padding-bottom: 9rem;
+}
+.theme-sunny .ingredients {
+  background-color: var(--sun);
+  background-image:
+    linear-gradient(180deg, var(--sun) 0%, var(--sun) 90px, transparent 240px),
+    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.4) 0%, transparent 35%);
+  padding-top: 5rem; padding-bottom: 9rem;
+}
+.theme-sunny .dosage {
+  background-color: var(--cream);
+  background-image:
+    linear-gradient(180deg, var(--cream) 0%, var(--cream) 90px, transparent 240px),
+    radial-gradient(circle at 10% 30%, rgba(253,203,70,0.10) 0%, transparent 40%);
+  padding-top: 5rem; padding-bottom: 9rem;
+}
+.theme-sunny .reviews {
+  background-color: var(--river);
+  background-image:
+    linear-gradient(180deg, var(--river) 0%, var(--river) 90px, transparent 240px),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.15) 0%, transparent 35%);
+  padding-top: 5rem; padding-bottom: 9rem;
+}
+.theme-sunny .faq {
+  background-color: #B5D2F7;
+  background-image:
+    linear-gradient(180deg, #B5D2F7 0%, #B5D2F7 90px, transparent 240px),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.18) 0%, transparent 40%);
+  padding-top: 5rem; padding-bottom: 9rem;
+}
+.theme-sunny .related {
+  background-color: var(--cream);
+  padding-top: 5rem; padding-bottom: 9rem;
+}
+/* shared noise overlay (matches homepage sections) */
+.theme-sunny .product-main::after,
+.theme-sunny .benefits::after,
+.theme-sunny .ingredients::after,
+.theme-sunny .dosage::after,
+.theme-sunny .reviews::after,
+.theme-sunny .faq::after,
+.theme-sunny .related::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: var(--noise); pointer-events: none; opacity: 0.4;
+}
+
+/* eyebrow / title colour tweaks per section bg */
+.theme-sunny .benefits .eyebrow,
+.theme-sunny .ingredients .eyebrow,
+.theme-sunny .dosage .eyebrow,
+.theme-sunny .faq .eyebrow,
+.theme-sunny .related .eyebrow { color: var(--coral); display: block; text-align: center; }
+.theme-sunny .benefits .section-title,
+.theme-sunny .ingredients .section-title,
+.theme-sunny .dosage .section-title,
+.theme-sunny .faq .section-title,
+.theme-sunny .related .section-title { color: var(--ink); text-align: center; }
+.theme-sunny .ingredients .section-title span::after { background: rgba(255,255,255,0.6); }
+.theme-sunny .reviews .section-title { color: white; text-align: center; }
+.theme-sunny .reviews .section-title span { color: var(--sun); }
+.theme-sunny .reviews .section-title span::after { background: rgba(253,203,70,0.5); }
+.theme-sunny .reviews > .container > .eyebrow { display: block; text-align: center; }
+
+/* ====== Divider decorations (reuse keyframes from sunny-v2.css) ====== */
+.theme-sunny .product-main .divider-tree { width: 54px; height: 80px; top: -36px; left: 70%; }
+.theme-sunny .benefits .divider-strawberry { width: 38px; height: 48px; top: -8px; left: 18%; animation: divider-bob 4s ease-in-out infinite; }
+.theme-sunny .ingredients .divider-boat { width: 70px; height: 60px; top: -18px; left: 22%; animation: divider-sail 6s ease-in-out infinite; }
+.theme-sunny .dosage .divider-cloud-mini { width: 100px; height: 50px; top: -22px; right: 14%; animation: divider-cloud-drift 30s linear infinite; }
+.theme-sunny .reviews .divider-kite { width: 46px; height: 82px; top: -42px; left: 72%; animation: divider-kite-fly 8s ease-in-out infinite; transform-origin: top center; }
+.theme-sunny .faq .divider-tree-2 { width: 50px; height: 76px; top: -38px; left: 16%; }
+.theme-sunny .related .divider-spark-1,
+.theme-sunny .related .divider-spark-2 { width: 22px; height: 22px; animation: divider-twinkle 3s ease-in-out infinite; filter: drop-shadow(0 0 12px currentColor); }
+.theme-sunny .related .divider-spark-1 { top: 18px; left: 28%; }
+.theme-sunny .related .divider-spark-2 { top: 8px; right: 22%; animation-delay: 1.2s; }
+
+/* ====== Floating section deco ====== */
+.theme-sunny .pm-deco,
+.theme-sunny .benefits-deco,
+.theme-sunny .ingredients-deco,
+.theme-sunny .dosage-deco,
+.theme-sunny .reviews-deco,
+.theme-sunny .related-deco { position: absolute; opacity: 0.7; pointer-events: none; z-index: 1; }
+.theme-sunny .pm-deco-cloud-1 { width: 150px; height: 75px; top: 14%; right: 3%; opacity: 0.55; }
+.theme-sunny .pm-deco-leaf { width: 44px; height: 54px; bottom: 18%; left: 4%; transform: rotate(-25deg); }
+.theme-sunny .pm-deco-berry { width: 40px; height: 50px; top: 30%; left: 8%; animation: bob 5s ease-in-out infinite; }
+.theme-sunny .benefits-deco-leaf-1 { width: 50px; height: 60px; top: 16%; left: 5%; transform: rotate(-20deg); }
+.theme-sunny .benefits-deco-butterfly { width: 56px; height: 46px; top: 20%; right: 6%; animation: butterfly 14s ease-in-out infinite; }
+.theme-sunny .ingredients-deco-carrot { width: 50px; height: 70px; top: 20%; left: 4%; transform: rotate(-15deg); animation: bob 5s ease-in-out infinite; }
+.theme-sunny .ingredients-deco-cloud { width: 160px; height: 80px; top: 16%; right: 2%; }
+.theme-sunny .dosage-deco-berry { width: 46px; height: 56px; top: 18%; right: 6%; animation: bob 5s ease-in-out infinite; }
+.theme-sunny .dosage-deco-leaf { width: 45px; height: 55px; bottom: 16%; left: 6%; transform: rotate(-35deg); }
+.theme-sunny .reviews-deco-cloud-1 { width: 140px; height: 70px; top: 22%; left: -30px; }
+.theme-sunny .reviews-deco-cloud-2 { width: 180px; height: 90px; bottom: 12%; right: -40px; opacity: 0.5; }
+.theme-sunny .related-deco-spark-1 { width: 26px; height: 26px; top: 18%; left: 8%; animation: divider-twinkle 3s ease-in-out infinite; }
+.theme-sunny .related-deco-spark-2 { width: 22px; height: 22px; top: 26%; right: 10%; animation: divider-twinkle 3s ease-in-out infinite 1s; }
+
+/* ============================================================
+   BREADCRUMB
+   ============================================================ */
+.theme-sunny .woocommerce-breadcrumb {
+  font-family: 'Nunito', sans-serif; font-weight: 700;
+  color: var(--ink-soft); font-size: 0.9rem;
+  margin-bottom: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;
+}
+.theme-sunny .woocommerce-breadcrumb a:hover { color: var(--coral); }
+.theme-sunny .woocommerce-breadcrumb span[aria-current] { color: var(--coral); }
+.theme-sunny .woocommerce-breadcrumb span { opacity: 0.5; }
+
+/* ============================================================
+   PRODUCT — gallery + summary  (div.product)
+   ============================================================ */
+.theme-sunny .product.type-product {
+  display: grid; grid-template-columns: 1fr; gap: 2.5rem;
+  align-items: start;
+}
+@media (min-width: 860px) {
+  .theme-sunny .product.type-product { grid-template-columns: 1fr 1fr; gap: 3.5rem; }
+}
+
+/* ----- Gallery ----- */
+.theme-sunny .woocommerce-product-gallery { position: sticky; top: 6rem; }
+@media (max-width: 859px) { .theme-sunny .woocommerce-product-gallery { position: static; } }
+.theme-sunny .woocommerce-product-gallery__wrapper {
+  position: relative; margin: 0;
+  background: var(--cream);
+  border-radius: 32px;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.05), 0 20px 44px rgba(60,60,80,0.16);
+}
+.theme-sunny .woocommerce-product-gallery__image { display: block; }
+.theme-sunny .woocommerce-product-gallery__image img {
+  width: 100%; max-width: none; height: auto; display: block; object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2,0.7,0.1,1);
+}
+.theme-sunny .woocommerce-product-gallery__wrapper:hover img { transform: scale(1.04); }
+.theme-sunny .onsale {
+  position: absolute; top: 18px; left: 18px; z-index: 2;
+  background: var(--coral); color: white;
+  font-family: 'Fredoka', sans-serif; font-weight: 700;
+  font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 0.4rem 0.9rem; border-radius: 999px;
+  transform: rotate(-4deg);
+  box-shadow: 0 3px 0 var(--coral-deep);
+}
+.theme-sunny .gallery-spark { position: absolute; width: 30px; height: 30px; animation: sparkle 3s ease-in-out infinite; }
+.theme-sunny .gallery-spark-1 { top: 10%; right: 12%; }
+.theme-sunny .gallery-spark-2 { bottom: 14%; left: 10%; animation-delay: 1.2s; }
+
+.theme-sunny .product-thumbnails {
+  display: flex; gap: 0.75rem; margin-top: 1.25rem; justify-content: center; flex-wrap: wrap;
+}
+.theme-sunny .product-thumbnails .thumb {
+  width: 72px; height: 72px; border-radius: 18px;
+  background: var(--cream); padding: 6px;
+  border: 3px solid transparent;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.05), 0 8px 16px rgba(60,60,80,0.1);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.theme-sunny .product-thumbnails .thumb img { width: 100%; height: 100%; object-fit: contain; }
+.theme-sunny .product-thumbnails .thumb:hover { transform: translateY(-3px); }
+.theme-sunny .product-thumbnails .thumb.is-active { border-color: var(--coral); }
+
+/* ----- Summary / buy box ----- */
+.theme-sunny .summary.entry-summary { display: flex; flex-direction: column; }
+.theme-sunny .summary .product_title {
+  font-family: 'Fredoka', sans-serif; font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem); line-height: 1.05; color: var(--ink);
+  margin: 0.25rem 0 0.5rem;
+}
+.theme-sunny .woocommerce-product-rating {
+  display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;
+}
+.theme-sunny .star-rating { color: var(--sun-deep); letter-spacing: 0.1em; font-size: 1.05rem; }
+.theme-sunny .woocommerce-review-link { font-weight: 700; color: var(--ink-soft); font-size: 0.9rem; }
+.theme-sunny .woocommerce-review-link:hover { color: var(--coral); }
+
+.theme-sunny .summary .price {
+  font-family: 'Fredoka', sans-serif; display: flex; align-items: baseline; gap: 0.6rem;
+  margin-bottom: 1.25rem; flex-wrap: wrap;
+}
+.theme-sunny .summary .price ins { text-decoration: none; }
+.theme-sunny .summary .price ins .amount { font-size: 2.2rem; font-weight: 700; color: var(--coral); }
+.theme-sunny .summary .price del { color: var(--ink-soft); opacity: 0.7; font-size: 1.2rem; }
+.theme-sunny .summary .price .price-note { color: var(--ink-soft); font-size: 0.9rem; font-family: 'Nunito', sans-serif; font-weight: 600; }
+
+.theme-sunny .woocommerce-product-details__short-description p { color: var(--ink-soft); font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem; }
+/* Flat feature list — descriptive text, not button-like pills */
+.theme-sunny .benefit-tags { display: flex; flex-wrap: wrap; gap: 0.35rem 1.4rem; margin-bottom: 1.75rem; }
+.theme-sunny .benefit-tags li {
+  background: none; box-shadow: none; padding: 0; border-radius: 0;
+  display: flex; align-items: center; gap: 0.45rem;
+  font-weight: 600; font-size: 0.95rem; color: var(--ink-soft);
+}
+
+/* ----- form.cart ----- */
+.theme-sunny form.cart { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: stretch; margin-bottom: 1.5rem; }
+.theme-sunny .quantity {
+  display: inline-flex; align-items: center;
+  background: white; border-radius: 999px;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.06), 0 8px 18px rgba(60,60,80,0.1);
+  padding: 0.25rem;
+}
+.theme-sunny .quantity .qty-btn {
+  width: 40px; height: 40px; border-radius: 50%;
+  font-family: 'Fredoka', sans-serif; font-size: 1.4rem; font-weight: 700; line-height: 1;
+  color: var(--coral); display: grid; place-items: center;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.theme-sunny .quantity .qty-btn:hover { background: var(--coral); color: white; }
+.theme-sunny .quantity .qty {
+  width: 44px; text-align: center; border: none; background: transparent;
+  font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--ink);
+  -moz-appearance: textfield;
+}
+.theme-sunny .quantity .qty::-webkit-outer-spin-button,
+.theme-sunny .quantity .qty::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.theme-sunny .single_add_to_cart_button { flex: 1 1 auto; }
+.theme-sunny .buy-now { flex: 1 1 auto; }
+
+/* ----- product meta ----- */
+.theme-sunny .product_meta {
+  display: flex; flex-direction: column; gap: 0.4rem;
+  border-top: 1px dashed rgba(45,38,32,0.18); padding-top: 1.25rem; margin-top: 0.5rem;
+  font-size: 0.88rem; color: var(--ink-soft); font-weight: 600;
+}
+.theme-sunny .product_meta a { color: var(--coral); }
+/* Flat trust row — subtle reassurance, not clickable-looking badges */
+.theme-sunny .summary .product-trust.badge-row { justify-content: flex-start; gap: 0.5rem 1.4rem; margin-top: 0; margin-bottom: 1.5rem; }
+.theme-sunny .summary .product-trust .badge {
+  background: none; box-shadow: none; padding: 0; gap: 0.4rem;
+  font-weight: 700; font-size: 0.85rem; color: var(--ink-soft);
+}
+.theme-sunny .summary .product-trust .badge-ico { width: 20px; height: 20px; font-size: 0.65rem; }
+
+/* ============================================================
+   BENEFITS
+   ============================================================ */
+.theme-sunny .benefit-grid {
+  display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-top: 2.5rem;
+}
+@media (min-width: 600px) { .theme-sunny .benefit-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 980px) { .theme-sunny .benefit-grid { grid-template-columns: repeat(4, 1fr); } }
+.theme-sunny .benefit-card {
+  background: var(--cream); border-radius: 24px; padding: 1.75rem 1.25rem; text-align: center;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.06), 0 12px 28px rgba(60,60,80,0.12);
+  transition: transform 0.4s cubic-bezier(0.2,0.7,0.1,1);
+}
+.theme-sunny .benefit-card:hover { transform: translateY(-8px) rotate(-1deg); }
+.theme-sunny .benefit-ico {
+  width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center;
+  font-size: 1.8rem; margin: 0 auto 1rem;
+  box-shadow: inset 0 -3px 0 rgba(0,0,0,0.08), 0 6px 14px rgba(60,60,80,0.18);
+}
+.theme-sunny .benefit-card h3 { font-family: 'Fredoka', sans-serif; font-size: 1.2rem; color: var(--ink); margin-bottom: 0.4rem; }
+.theme-sunny .benefit-card p { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.5; }
+
+/* ============================================================
+   INGREDIENTS
+   ============================================================ */
+.theme-sunny .ingredient-grid {
+  display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-top: 2.5rem;
+}
+@media (min-width: 600px) { .theme-sunny .ingredient-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 980px) { .theme-sunny .ingredient-grid { grid-template-columns: repeat(4, 1fr); } }
+.theme-sunny .ingredient-card {
+  background: white; border-radius: 24px; padding: 1.75rem 1.25rem; text-align: center;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.04), 0 12px 28px rgba(60,60,80,0.1);
+  transition: transform 0.4s cubic-bezier(0.2,0.7,0.1,1);
+}
+.theme-sunny .ingredient-card:hover { transform: translateY(-6px); }
+.theme-sunny .ingredient-emoji {
+  display: inline-grid; place-items: center; width: 60px; height: 60px; border-radius: 18px;
+  background: var(--sky); font-size: 1.7rem; margin-bottom: 0.9rem;
+}
+.theme-sunny .ingredient-card h3 { font-family: 'Fredoka', sans-serif; font-size: 1.1rem; color: var(--ink); margin-bottom: 0.4rem; }
+.theme-sunny .ingredient-card p { color: var(--ink-soft); font-size: 0.9rem; line-height: 1.5; }
+
+/* ============================================================
+   DOSAGE / HOW TO USE
+   ============================================================ */
+.theme-sunny .dosage-wrap {
+  display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2.5rem; align-items: start;
+}
+@media (min-width: 860px) { .theme-sunny .dosage-wrap { grid-template-columns: 1.2fr 1fr; gap: 2.5rem; } }
+.theme-sunny .step-list { display: flex; flex-direction: column; gap: 1rem; }
+.theme-sunny .step-card {
+  display: flex; align-items: center; gap: 1.1rem;
+  background: white; border-radius: 22px; padding: 1.25rem 1.5rem;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.04), 0 10px 22px rgba(60,60,80,0.1);
+}
+.theme-sunny .step-num {
+  flex: 0 0 auto; width: 48px; height: 48px; border-radius: 50%;
+  background: linear-gradient(180deg, #FFE07A 0%, var(--sun) 100%); color: var(--ink);
+  font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.4rem;
+  display: grid; place-items: center;
+  box-shadow: 0 3px 0 var(--sun-deep);
+}
+.theme-sunny .step-card h3 { font-family: 'Fredoka', sans-serif; font-size: 1.15rem; color: var(--ink); }
+.theme-sunny .step-card p { color: var(--ink-soft); font-size: 0.92rem; }
+.theme-sunny .dosage-table-card {
+  background: var(--cream); border-radius: 26px; padding: 1.75rem;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.05), 0 14px 30px rgba(60,60,80,0.12);
+}
+.theme-sunny .dosage-table-card h3 { font-family: 'Fredoka', sans-serif; font-size: 1.25rem; color: var(--ink); margin-bottom: 1rem; }
+.theme-sunny .dosage-table { width: 100%; border-collapse: collapse; }
+.theme-sunny .dosage-table th, .theme-sunny .dosage-table td { text-align: left; padding: 0.75rem 0.5rem; border-bottom: 1px dashed rgba(45,38,32,0.15); }
+.theme-sunny .dosage-table th { font-family: 'Fredoka', sans-serif; color: var(--coral); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.theme-sunny .dosage-table td { color: var(--ink); font-weight: 600; }
+.theme-sunny .dosage-table td:last-child { color: var(--ink-soft); }
+.theme-sunny .dosage-fine { margin-top: 1rem; font-size: 0.82rem; color: var(--ink-soft); line-height: 1.5; }
+
+/* ============================================================
+   REVIEWS
+   ============================================================ */
+.theme-sunny .review-summary {
+  display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin: 2.5rem 0;
+  background: white; border-radius: 26px; padding: 1.75rem;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.06), 0 14px 30px rgba(0,0,0,0.12);
+  align-items: center;
+}
+@media (min-width: 700px) { .theme-sunny .review-summary { grid-template-columns: auto 1fr; gap: 2.5rem; } }
+.theme-sunny .review-score { text-align: center; }
+.theme-sunny .review-score strong { display: block; font-family: 'Fredoka', sans-serif; font-size: 3rem; color: var(--coral); line-height: 1; }
+.theme-sunny .review-score .star-rating { font-size: 1.2rem; }
+.theme-sunny .review-score small { display: block; color: var(--ink-soft); font-size: 0.82rem; margin-top: 0.4rem; }
+.theme-sunny .review-bars { display: flex; flex-direction: column; gap: 0.45rem; }
+.theme-sunny .review-bars li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.82rem; font-weight: 700; color: var(--ink-soft); }
+.theme-sunny .review-bars .bar { flex: 1; height: 10px; border-radius: 999px; background: rgba(45,38,32,0.1); overflow: hidden; }
+.theme-sunny .review-bars .bar > span { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--sun), var(--coral)); }
+
+.theme-sunny .review-grid {
+  display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 0.5rem;
+}
+@media (min-width: 768px) { .theme-sunny .review-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* ============================================================
+   FAQ (accordion via <details>)
+   ============================================================ */
+.theme-sunny .faq-list { max-width: 760px; margin: 2.5rem auto 0; display: flex; flex-direction: column; gap: 1rem; }
+.theme-sunny .faq-item {
+  background: white; border-radius: 20px; padding: 0 1.5rem;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.04), 0 10px 22px rgba(60,60,80,0.1);
+  overflow: hidden;
+}
+.theme-sunny .faq-item summary {
+  list-style: none; cursor: pointer;
+  font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1.1rem; color: var(--ink);
+  padding: 1.15rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.theme-sunny .faq-item summary::-webkit-details-marker { display: none; }
+.theme-sunny .faq-item summary::after {
+  content: '+'; flex: 0 0 auto;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--sky); color: var(--coral);
+  font-size: 1.3rem; line-height: 1; display: grid; place-items: center;
+  transition: transform 0.25s ease, background 0.2s ease;
+}
+.theme-sunny .faq-item[open] summary::after { content: '−'; transform: rotate(180deg); background: var(--coral); color: white; }
+.theme-sunny .faq-body { padding: 0 0 1.2rem; }
+.theme-sunny .faq-body p { color: var(--ink-soft); line-height: 1.6; }
+
+/* ============================================================
+   STICKY MOBILE BUY BAR
+   ============================================================ */
+.theme-sunny .sticky-buy {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
+  background: rgba(255,249,230,0.96); backdrop-filter: blur(10px);
+  box-shadow: 0 -6px 20px rgba(60,60,80,0.12);
+  transform: translateY(120%); transition: transform 0.3s ease;
+  padding: 0.6rem 0;
+}
+.theme-sunny .sticky-buy.is-visible { transform: translateY(0); }
+.theme-sunny .sticky-buy-inner { display: flex; align-items: center; gap: 0.85rem; }
+.theme-sunny .sticky-buy-img { width: 44px; height: 44px; object-fit: contain; }
+.theme-sunny .sticky-buy-info { display: flex; flex-direction: column; line-height: 1.1; margin-right: auto; }
+.theme-sunny .sticky-buy-info strong { font-family: 'Fredoka', sans-serif; color: var(--ink); }
+.theme-sunny .sticky-buy-info span { color: var(--coral); font-weight: 700; font-size: 0.9rem; }
+@media (min-width: 860px) { .theme-sunny .sticky-buy { display: none; } }
+
+/* ============================================================
+   ADD-TO-CART TOAST
+   ============================================================ */
+.theme-sunny .cart-toast {
+  position: fixed; left: 50%; bottom: 5.5rem; transform: translateX(-50%) translateY(20px);
+  background: var(--ink); color: white;
+  font-family: 'Fredoka', sans-serif; font-weight: 600;
+  padding: 0.85rem 1.5rem; border-radius: 999px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25); z-index: 120;
+  opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.theme-sunny .cart-toast[hidden] { display: block; visibility: hidden; }
+.theme-sunny .cart-toast.is-visible { opacity: 1; transform: translateX(-50%) translateY(0); visibility: visible; }
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-sunny .pm-deco, .theme-sunny .benefits-deco, .theme-sunny .ingredients-deco,
+  .theme-sunny .dosage-deco, .theme-sunny .reviews-deco, .theme-sunny .related-deco,
+  .theme-sunny .gallery-spark, .theme-sunny .divider-deco { animation: none !important; }
+}

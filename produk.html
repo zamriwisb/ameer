@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mag+ — Calm &amp; Sleep · Ameer Kids Nutrition</title>
+  <meta name="description" content="Mag+ magnesium glycinate for kids — gentle, sugar-free support for calmer bedtimes, relaxed muscles and happy moods. Halal certified." />
+  <link rel="icon" href="assets/logo.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Caveat+Brush&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/sunny-v2.css" />
+  <link rel="stylesheet" href="css/product-page.css" />
+</head>
+<!--
+  ============================================================
+  REUSABLE SINGLE-PRODUCT TEMPLATE
+  ............................................................
+  Default content = Mag+. To feature a different product, edit
+  the spots tagged "PRODUCT:" in the comments below. The markup
+  uses WooCommerce single-product class names (div.product,
+  .summary, .price, form.cart, .single_add_to_cart_button,
+  .product_meta, .woocommerce-tabs panels, .related.products)
+  so it ports cleanly into a Woo theme later.
+  ============================================================
+-->
+<body class="theme-sunny theme-v2">
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar" id="scrollProgressBar"></div></div>
+
+  <!-- ============ SVG SYMBOL LIBRARY (shared with homepage) ============ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-balloon" viewBox="0 0 80 110">
+        <defs>
+          <radialGradient id="balloonGrad" cx="35%" cy="30%">
+            <stop offset="0%" stop-color="#FFB5A8"/><stop offset="60%" stop-color="#FA6255"/><stop offset="100%" stop-color="#C73F30"/>
+          </radialGradient>
+        </defs>
+        <ellipse cx="40" cy="42" rx="32" ry="38" fill="url(#balloonGrad)"/>
+        <ellipse cx="28" cy="28" rx="8" ry="12" fill="#FFE6E0" opacity="0.6"/>
+        <path d="M37,78 L43,78 L40,86 Z" fill="#9D3A2F"/>
+        <path d="M40,86 Q34,94 40,100 T40,108" stroke="#3A3530" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-cloud" viewBox="0 0 160 80">
+        <defs>
+          <linearGradient id="cloudGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#F4ECDD"/>
+          </linearGradient>
+        </defs>
+        <ellipse cx="40" cy="50" rx="32" ry="22" fill="url(#cloudGrad)"/>
+        <ellipse cx="80" cy="38" rx="38" ry="28" fill="url(#cloudGrad)"/>
+        <ellipse cx="120" cy="50" rx="32" ry="22" fill="url(#cloudGrad)"/>
+        <ellipse cx="60" cy="56" rx="20" ry="14" fill="#ffffff"/>
+        <ellipse cx="100" cy="56" rx="22" ry="14" fill="#ffffff"/>
+      </symbol>
+      <symbol id="i-sun" viewBox="0 0 160 160">
+        <defs>
+          <radialGradient id="sunGrad" cx="40%" cy="40%">
+            <stop offset="0%" stop-color="#FFF1AE"/><stop offset="60%" stop-color="#FDCB46"/><stop offset="100%" stop-color="#E5A823"/>
+          </radialGradient>
+        </defs>
+        <g stroke="#FDCB46" stroke-width="5" stroke-linecap="round">
+          <line x1="80" y1="6" x2="80" y2="24"/><line x1="80" y1="136" x2="80" y2="154"/>
+          <line x1="6" y1="80" x2="24" y2="80"/><line x1="136" y1="80" x2="154" y2="80"/>
+          <line x1="28" y1="28" x2="40" y2="40"/><line x1="120" y1="120" x2="132" y2="132"/>
+          <line x1="132" y1="28" x2="120" y2="40"/><line x1="40" y1="120" x2="28" y2="132"/>
+        </g>
+        <circle cx="80" cy="80" r="45" fill="url(#sunGrad)"/>
+        <circle cx="68" cy="68" r="10" fill="#FFF1AE" opacity="0.55"/>
+      </symbol>
+      <symbol id="i-butterfly" viewBox="0 0 60 50">
+        <g>
+          <ellipse cx="18" cy="18" rx="14" ry="12" fill="#FA6255"/><ellipse cx="42" cy="18" rx="14" ry="12" fill="#FA6255"/>
+          <ellipse cx="18" cy="34" rx="11" ry="9" fill="#FDCB46"/><ellipse cx="42" cy="34" rx="11" ry="9" fill="#FDCB46"/>
+          <ellipse cx="30" cy="25" rx="2.5" ry="13" fill="#3A3530"/>
+          <circle cx="27" cy="13" r="2" fill="#3A3530"/><circle cx="33" cy="13" r="2" fill="#3A3530"/>
+        </g>
+      </symbol>
+      <symbol id="i-leaf" viewBox="0 0 40 50">
+        <path d="M20,2 C32,12 38,28 26,46 C18,42 4,30 8,16 C12,8 16,4 20,2 Z" fill="#A6D17D"/>
+        <path d="M20,4 Q22,22 24,44" stroke="#83AC5E" stroke-width="1.5" fill="none"/>
+      </symbol>
+      <symbol id="i-strawberry" viewBox="0 0 40 50">
+        <path d="M6,20 C6,38 18,48 20,48 C22,48 34,38 34,20 C30,18 26,16 20,16 C14,16 10,18 6,20 Z" fill="#FA6255"/>
+        <g fill="#FFF9E6">
+          <circle cx="14" cy="26" r="1.3"/><circle cx="22" cy="24" r="1.3"/><circle cx="28" cy="30" r="1.3"/>
+          <circle cx="18" cy="34" r="1.3"/><circle cx="24" cy="40" r="1.3"/><circle cx="14" cy="38" r="1.3"/>
+        </g>
+        <path d="M12,18 L20,8 L28,18 Q24,14 20,16 Q16,14 12,18 Z" fill="#A6D17D"/>
+      </symbol>
+      <symbol id="i-carrot" viewBox="0 0 40 60">
+        <path d="M20,12 L8,52 Q20,58 32,52 Z" fill="#FA8E3D"/>
+        <path d="M14,22 L16,24 M22,30 L24,32 M16,36 L18,38 M22,42 L24,44" stroke="#C5631C" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16,14 L20,2 M20,12 L24,2 M20,12 L18,2 M20,12 L22,2" stroke="#A6D17D" stroke-width="3" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-sparkle" viewBox="0 0 30 30">
+        <path d="M15,3 L17,13 L27,15 L17,17 L15,27 L13,17 L3,15 L13,13 Z" fill="currentColor"/>
+      </symbol>
+      <symbol id="i-quote" viewBox="0 0 40 36">
+        <path d="M6,30 L6,18 C6,10 12,4 18,4 L18,10 C14,10 12,14 12,18 L18,18 L18,30 Z M22,30 L22,18 C22,10 28,4 34,4 L34,10 C30,10 28,14 28,18 L34,18 L34,30 Z" fill="currentColor" opacity="0.18"/>
+      </symbol>
+      <symbol id="i-tree" viewBox="0 0 60 90">
+        <rect x="26" y="68" width="8" height="20" fill="#7A5A3F"/>
+        <polygon points="30,4 8,40 18,40 6,62 22,62 14,80 46,80 38,62 54,62 42,40 52,40" fill="#5B8E45" stroke="#3E6B2E" stroke-width="1.5" stroke-linejoin="round"/>
+        <circle cx="22" cy="36" r="2" fill="#FA6255"/><circle cx="40" cy="54" r="2" fill="#FDCB46"/><circle cx="30" cy="70" r="2" fill="#FA6255"/>
+      </symbol>
+      <symbol id="i-boat" viewBox="0 0 80 70">
+        <path d="M4,46 L76,46 L66,62 L14,62 Z" fill="#FA6255" stroke="#9D3A2F" stroke-width="2" stroke-linejoin="round"/>
+        <rect x="38" y="10" width="3" height="38" fill="#7A5A3F"/>
+        <path d="M40,12 L40,44 L66,44 Z" fill="white" stroke="#3A3530" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M40,12 L40,38 L18,38 Z" fill="#FDCB46" stroke="#3A3530" stroke-width="1.5" stroke-linejoin="round"/>
+        <circle cx="40" cy="8" r="3" fill="#FA6255"/>
+      </symbol>
+      <symbol id="i-kite" viewBox="0 0 50 90">
+        <polygon points="25,4 44,30 25,56 6,30" fill="#FA6255" stroke="#3A3530" stroke-width="1.5" stroke-linejoin="round"/>
+        <line x1="25" y1="4" x2="25" y2="56" stroke="#3A3530" stroke-width="1"/>
+        <line x1="6" y1="30" x2="44" y2="30" stroke="#3A3530" stroke-width="1"/>
+        <path d="M25,56 Q22,64 26,70 T24,84" stroke="#3A3530" stroke-width="1.2" fill="none"/>
+        <path d="M22,66 L18,68 M27,72 L23,74 M22,80 L18,82" stroke="#FDCB46" stroke-width="2"/>
+      </symbol>
+      <symbol id="i-cloud-mini" viewBox="0 0 80 40">
+        <ellipse cx="20" cy="26" rx="16" ry="12" fill="white"/>
+        <ellipse cx="42" cy="20" rx="20" ry="15" fill="white"/>
+        <ellipse cx="62" cy="26" rx="16" ry="12" fill="white"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/logo.jpeg" alt="Ameer logo" class="brand-logo" />
+      </a>
+      <nav class="site-nav" id="primaryNav" aria-label="Primary">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#shop">Shop</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#recipes">Recipes</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        </button>
+        <a href="#buy" class="btn btn-primary">Shop Now</a>
+        <button class="menu-toggle" type="button" aria-controls="primaryNav" aria-expanded="false" aria-label="Open menu">
+          <span class="menu-toggle-bar" aria-hidden="true"></span>
+          <span class="menu-toggle-bar" aria-hidden="true"></span>
+          <span class="menu-toggle-bar" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ PRODUCT HERO / BUY BOX ============ -->
+    <section class="product-main" id="buy" aria-labelledby="productTitle">
+      <svg class="pm-deco pm-deco-cloud-1" viewBox="0 0 160 80" aria-hidden="true"><use href="#i-cloud"/></svg>
+      <svg class="pm-deco pm-deco-leaf" viewBox="0 0 40 50" aria-hidden="true"><use href="#i-leaf"/></svg>
+      <svg class="pm-deco pm-deco-berry" viewBox="0 0 40 50" aria-hidden="true"><use href="#i-strawberry"/></svg>
+
+      <div class="container">
+        <!-- WooCommerce breadcrumb -->
+        <nav class="woocommerce-breadcrumb" aria-label="Breadcrumb" data-anim="reveal-up">
+          <a href="index.html">Home</a> <span>/</span>
+          <a href="index.html#shop">Shop</a> <span>/</span>
+          <!-- PRODUCT:name --><span aria-current="page">Mag+</span>
+        </nav>
+
+        <!-- div.product — WooCommerce single product wrapper -->
+        <div class="product type-product">
+          <!-- ===== Gallery ===== -->
+          <div class="woocommerce-product-gallery" data-anim="reveal-up">
+            <figure class="woocommerce-product-gallery__wrapper">
+              <span class="onsale">Best&nbsp;seller</span>
+              <div class="woocommerce-product-gallery__image">
+                <!-- PRODUCT:gallery-main -->
+                <img src="assets/products/product-hero-mag1.png" alt="Mag+ magnesium glycinate for kids" class="wp-post-image" id="galleryMain" />
+              </div>
+              <svg class="gallery-spark gallery-spark-1" viewBox="0 0 30 30" style="color:#FDCB46"><use href="#i-sparkle"/></svg>
+              <svg class="gallery-spark gallery-spark-2" viewBox="0 0 30 30" style="color:#FA6255"><use href="#i-sparkle"/></svg>
+            </figure>
+            <ul class="product-thumbnails flex-control-thumbs" role="list">
+              <!-- PRODUCT:gallery-thumbs -->
+              <li><button type="button" class="thumb is-active" data-full="assets/products/product-hero-mag1.png" aria-label="View product shot"><img src="assets/products/product-hero-mag1.png" alt="" /></button></li>
+              <li><button type="button" class="thumb" data-full="assets/hero-visual.png" aria-label="View family range"><img src="assets/hero-visual.png" alt="" /></button></li>
+            </ul>
+          </div>
+
+          <!-- ===== Summary ===== -->
+          <div class="summary entry-summary">
+            <span class="eyebrow" data-anim="reveal-up"><!-- PRODUCT:eyebrow -->Calm &amp; sleep</span>
+            <h1 class="product_title entry-title" id="productTitle" data-anim="reveal-up" data-anim-delay="100"><!-- PRODUCT:name -->Mag+</h1>
+
+            <div class="woocommerce-product-rating" data-anim="reveal-up" data-anim-delay="200">
+              <span class="star-rating" role="img" aria-label="Rated 4.9 out of 5">★★★★★</span>
+              <a href="#reviews" class="woocommerce-review-link">4.9 · <span class="count">128</span> reviews</a>
+            </div>
+
+            <p class="price" data-anim="reveal-up" data-anim-delay="300">
+              <!-- PRODUCT:price -->
+              <del aria-hidden="true"><span class="woocommerce-Price-amount amount">RM&nbsp;99</span></del>
+              <ins><span class="woocommerce-Price-amount amount">RM&nbsp;89</span></ins>
+              <small class="price-note">/ 60 servings</small>
+            </p>
+
+            <div class="woocommerce-product-details__short-description" data-anim="reveal-up" data-anim-delay="400">
+              <!-- PRODUCT:short-description -->
+              <p>Gentle magnesium glycinate that helps little minds settle and sleep through the night — sugar-free, berry-loved, and easy on tiny tummies.</p>
+              <ul class="benefit-tags" role="list">
+                <li>😴 Calmer bedtimes</li>
+                <li>💪 Relaxed muscles</li>
+                <li>🍓 Berry taste kids love</li>
+              </ul>
+            </div>
+
+            <!-- form.cart — WooCommerce add-to-cart form (inert demo) -->
+            <form class="cart" data-anim="reveal-up" data-anim-delay="500" onsubmit="return false;">
+              <div class="quantity" role="group" aria-label="Quantity">
+                <button type="button" class="qty-btn" data-step="-1" aria-label="Decrease quantity">−</button>
+                <input type="number" class="qty input-text" name="quantity" value="1" min="1" max="9" inputmode="numeric" aria-label="Quantity" />
+                <button type="button" class="qty-btn" data-step="1" aria-label="Increase quantity">+</button>
+              </div>
+              <button type="submit" class="single_add_to_cart_button btn btn-primary btn-large" data-add-to-cart>Add to cart</button>
+              <a href="#" class="btn btn-secondary btn-large buy-now" data-buy-now>Buy now</a>
+            </form>
+
+            <ul class="product-trust badge-row" role="list" data-anim="reveal-up" data-anim-delay="600">
+              <li class="badge"><span class="badge-ico" style="background:#FA6255;color:white">✓</span>Halal Certified</li>
+              <li class="badge"><span class="badge-ico" style="background:#FDCB46;color:#3A3530">✓</span>No Added Sugar</li>
+              <li class="badge"><span class="badge-ico" style="background:#91BEF8;color:white">✓</span>Kids-Formulated</li>
+            </ul>
+
+            <div class="product_meta">
+              <span class="sku_wrapper">SKU: <span class="sku"><!-- PRODUCT:sku -->AMR-MAG-60</span></span>
+              <span class="posted_in">Category: <a href="index.html#shop" rel="tag">Calm &amp; Sleep</a></span>
+              <span class="shipping-note">🚚 Free shipping over RM150</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- divider → benefits (green) -->
+      <div class="divider divider-bottom" aria-hidden="true">
+        <svg class="divider-shape" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <path d="M0,90 L1440,90 L1440,55 C1200,28 960,75 720,48 C480,20 240,65 0,55 Z" fill="#A6D17D"/>
+        </svg>
+        <svg class="divider-deco divider-tree" viewBox="0 0 60 90"><use href="#i-tree"/></svg>
+      </div>
+    </section>
+
+    <!-- ============ BENEFITS ============ (woo: Description tab) -->
+    <section class="benefits reveal woocommerce-Tabs-panel--description" id="tab-description" aria-labelledby="benefitsTitle">
+      <svg class="benefits-deco benefits-deco-leaf-1" viewBox="0 0 40 50" aria-hidden="true"><use href="#i-leaf"/></svg>
+      <svg class="benefits-deco benefits-deco-butterfly" viewBox="0 0 60 50" aria-hidden="true"><use href="#i-butterfly"/></svg>
+      <div class="container">
+        <span class="eyebrow" data-anim="reveal-up">Why kids love it</span>
+        <h2 id="benefitsTitle" class="section-title" data-anim="word-reveal">Big benefits, <span>tiny</span> scoop</h2>
+        <div class="benefit-grid" data-anim="stagger-up">
+          <article class="benefit-card">
+            <span class="benefit-ico" style="background:#91BEF8">😴</span>
+            <h3>Calmer bedtimes</h3>
+            <p>Magnesium helps little minds wind down for deeper, longer sleep.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-ico" style="background:#A6D17D">💪</span>
+            <h3>Relaxed muscles</h3>
+            <p>Eases growing-pain wriggles so they wake up rested and ready to play.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-ico" style="background:#FDCB46">😊</span>
+            <h3>Happier moods</h3>
+            <p>Supports a calm, steady mood through busy school-day ups and downs.</p>
+          </article>
+          <article class="benefit-card">
+            <span class="benefit-ico" style="background:#FA6255">🦴</span>
+            <h3>Strong bones</h3>
+            <p>Works with calcium for healthy bones and teeth as they grow.</p>
+          </article>
+        </div>
+      </div>
+      <!-- divider → ingredients (yellow) -->
+      <div class="divider divider-bottom" aria-hidden="true">
+        <svg class="divider-shape" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <g fill="#FDCB46">
+            <rect x="0" y="78" width="1440" height="12"/>
+            <ellipse cx="130" cy="74" rx="120" ry="32"/><ellipse cx="360" cy="70" rx="140" ry="38"/>
+            <ellipse cx="600" cy="74" rx="120" ry="32"/><ellipse cx="840" cy="70" rx="140" ry="38"/>
+            <ellipse cx="1080" cy="74" rx="120" ry="32"/><ellipse cx="1320" cy="70" rx="140" ry="38"/>
+          </g>
+        </svg>
+        <svg class="divider-deco divider-strawberry" viewBox="0 0 40 50"><use href="#i-strawberry"/></svg>
+      </div>
+    </section>
+
+    <!-- ============ INGREDIENTS / WHAT'S INSIDE ============ -->
+    <section class="ingredients reveal" id="ingredients" aria-labelledby="ingredientsTitle">
+      <svg class="ingredients-deco ingredients-deco-carrot" viewBox="0 0 40 60" aria-hidden="true"><use href="#i-carrot"/></svg>
+      <svg class="ingredients-deco ingredients-deco-cloud" viewBox="0 0 160 80" aria-hidden="true" style="opacity:0.5"><use href="#i-cloud"/></svg>
+      <div class="container">
+        <span class="eyebrow" data-anim="reveal-up">Clean &amp; simple</span>
+        <h2 id="ingredientsTitle" class="section-title" data-anim="word-reveal">What&rsquo;s <span>inside</span></h2>
+        <div class="ingredient-grid" data-anim="stagger-scale">
+          <article class="ingredient-card">
+            <span class="ingredient-emoji">🧪</span>
+            <h3>Magnesium Glycinate</h3>
+            <p>The gentlest, most absorbable form — kind to little tummies.</p>
+          </article>
+          <article class="ingredient-card">
+            <span class="ingredient-emoji">🍓</span>
+            <h3>Natural Berry</h3>
+            <p>Real fruit flavour, no artificial colours or sweeteners.</p>
+          </article>
+          <article class="ingredient-card">
+            <span class="ingredient-emoji">🚫</span>
+            <h3>No Added Sugar</h3>
+            <p>Zero added sugar, gluten-free and SSM registered.</p>
+          </article>
+          <article class="ingredient-card">
+            <span class="ingredient-emoji">🌙</span>
+            <h3>Halal Certified</h3>
+            <p>JAKIM-recognised, made in a certified facility.</p>
+          </article>
+        </div>
+      </div>
+      <!-- divider → dosage (cream) -->
+      <div class="divider divider-bottom" aria-hidden="true">
+        <svg class="divider-shape" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <path d="M0,90 L1440,90 L1440,55 C1080,28 720,82 360,55 C180,42 90,58 0,55 Z" fill="#FFF9E6"/>
+        </svg>
+        <svg class="divider-deco divider-boat" viewBox="0 0 80 70"><use href="#i-boat"/></svg>
+      </div>
+    </section>
+
+    <!-- ============ HOW TO USE / DOSAGE ============ (woo: Additional information tab) -->
+    <section class="dosage reveal woocommerce-Tabs-panel--additional_information" id="tab-additional_information" aria-labelledby="dosageTitle">
+      <svg class="dosage-deco dosage-deco-berry" viewBox="0 0 40 50" aria-hidden="true"><use href="#i-strawberry"/></svg>
+      <svg class="dosage-deco dosage-deco-leaf" viewBox="0 0 40 50" aria-hidden="true"><use href="#i-leaf"/></svg>
+      <div class="container">
+        <span class="eyebrow" data-anim="reveal-up">Easy as 1-2-3</span>
+        <h2 id="dosageTitle" class="section-title" data-anim="word-reveal">How to <span>use</span> it</h2>
+        <div class="dosage-wrap">
+          <ol class="step-list" data-anim="stagger-up">
+            <li class="step-card"><span class="step-num">1</span><div><h3>Scoop</h3><p>One level scoop, straight from the tub.</p></div></li>
+            <li class="step-card"><span class="step-num">2</span><div><h3>Mix</h3><p>Stir into water, milk or a favourite smoothie.</p></div></li>
+            <li class="step-card"><span class="step-num">3</span><div><h3>Sip</h3><p>Once daily, about an hour before bedtime.</p></div></li>
+          </ol>
+          <div class="dosage-table-card" data-anim="reveal-up">
+            <h3>Serving by age</h3>
+            <table class="dosage-table">
+              <thead><tr><th scope="col">Age</th><th scope="col">Serving</th></tr></thead>
+              <tbody>
+                <tr><td>1 – 3 years</td><td>½ scoop daily</td></tr>
+                <tr><td>4 – 8 years</td><td>1 scoop daily</td></tr>
+                <tr><td>9 years +</td><td>1 – 2 scoops daily</td></tr>
+              </tbody>
+            </table>
+            <p class="dosage-fine">Always consult your paediatrician for children under 1. Store in a cool, dry place.</p>
+          </div>
+        </div>
+      </div>
+      <!-- divider → reviews (river blue) -->
+      <div class="divider divider-bottom" aria-hidden="true">
+        <svg class="divider-shape" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <path d="M0,90 L1440,90 L1440,50 C1080,80 720,20 360,50 C180,65 90,42 0,50 Z" fill="#91BEF8"/>
+        </svg>
+        <svg class="divider-deco divider-cloud-mini" viewBox="0 0 80 40"><use href="#i-cloud-mini"/></svg>
+      </div>
+    </section>
+
+    <!-- ============ REVIEWS ============ (woo: #reviews tab) -->
+    <section class="reviews reveal" id="reviews" aria-labelledby="reviewsTitle">
+      <svg class="reviews-deco reviews-deco-cloud-1" viewBox="0 0 160 80" aria-hidden="true"><use href="#i-cloud"/></svg>
+      <svg class="reviews-deco reviews-deco-cloud-2" viewBox="0 0 160 80" aria-hidden="true"><use href="#i-cloud"/></svg>
+      <div class="container">
+        <span class="eyebrow" data-anim="reveal-up" style="color:#FFF9E6">Real mom reviews</span>
+        <h2 id="reviewsTitle" class="section-title" data-anim="word-reveal">Loved by <span>mommies</span></h2>
+
+        <div class="review-summary" data-anim="reveal-up">
+          <div class="review-score">
+            <strong>4.9</strong>
+            <span class="star-rating" role="img" aria-label="Rated 4.9 out of 5">★★★★★</span>
+            <small>based on 128 reviews</small>
+          </div>
+          <ul class="review-bars" role="list">
+            <li><span>5★</span><span class="bar"><span style="width:92%"></span></span></li>
+            <li><span>4★</span><span class="bar"><span style="width:6%"></span></span></li>
+            <li><span>3★</span><span class="bar"><span style="width:2%"></span></span></li>
+            <li><span>2★</span><span class="bar"><span style="width:0%"></span></span></li>
+            <li><span>1★</span><span class="bar"><span style="width:0%"></span></span></li>
+          </ul>
+        </div>
+
+        <ul class="review-grid" role="list" data-anim="stagger-up">
+          <li class="testimonial">
+            <svg class="quote-mark" viewBox="0 0 40 36" aria-hidden="true" style="color:#FA6255"><use href="#i-quote"/></svg>
+            <div class="stars" aria-label="5 stars">★★★★★</div>
+            <p>"My toddler actually sleeps through the night now. Mag+ has been a game changer for our whole family."</p>
+            <div class="who">
+              <img src="assets/feedback/feedback-1.png" alt="Aisyah" />
+              <div><cite>Aisyah</cite><small>Kuala Lumpur</small></div>
+            </div>
+          </li>
+          <li class="testimonial">
+            <svg class="quote-mark" viewBox="0 0 40 36" aria-hidden="true" style="color:#A6D17D"><use href="#i-quote"/></svg>
+            <div class="stars" aria-label="5 stars">★★★★★</div>
+            <p>"No more bedtime battles. He asks for his 'berry drink' himself now — and no sugar guilt for me."</p>
+            <div class="who">
+              <img src="assets/feedback/feedback-2.png" alt="Nadia" />
+              <div><cite>Nadia</cite><small>Selangor</small></div>
+            </div>
+          </li>
+          <li class="testimonial">
+            <svg class="quote-mark" viewBox="0 0 40 36" aria-hidden="true" style="color:#FDCB46"><use href="#i-quote"/></svg>
+            <div class="stars" aria-label="5 stars">★★★★★</div>
+            <p>"Gentle on her tummy and she loves the taste. Finally a magnesium my picky one will take."</p>
+            <div class="who">
+              <img src="assets/feedback/feedback-3.png" alt="Faridah" />
+              <div><cite>Faridah</cite><small>Penang</small></div>
+            </div>
+          </li>
+        </ul>
+        <div class="center-cta" data-anim="reveal-up">
+          <a href="#" class="btn btn-secondary">Read all reviews</a>
+        </div>
+      </div>
+      <!-- divider → faq (social blue) -->
+      <div class="divider divider-bottom" aria-hidden="true">
+        <svg class="divider-shape" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <g fill="#B5D2F7">
+            <rect x="0" y="78" width="1440" height="12"/>
+            <ellipse cx="110" cy="74" rx="100" ry="28"/><ellipse cx="310" cy="72" rx="120" ry="34"/>
+            <ellipse cx="520" cy="74" rx="100" ry="28"/><ellipse cx="720" cy="72" rx="120" ry="34"/>
+            <ellipse cx="920" cy="74" rx="100" ry="28"/><ellipse cx="1130" cy="72" rx="120" ry="34"/>
+            <ellipse cx="1340" cy="74" rx="100" ry="28"/>
+          </g>
+        </svg>
+        <svg class="divider-deco divider-kite" viewBox="0 0 50 90"><use href="#i-kite"/></svg>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq reveal" id="faq" aria-labelledby="faqTitle">
+      <div class="container">
+        <span class="eyebrow" data-anim="reveal-up">Good to know</span>
+        <h2 id="faqTitle" class="section-title" data-anim="word-reveal">Mom <span>questions</span>, answered</h2>
+        <div class="faq-list" data-anim="stagger-up">
+          <details class="faq-item" open>
+            <summary>Is Mag+ halal certified?</summary>
+            <div class="faq-body"><p>Yes — Mag+ is JAKIM-recognised halal and made in a certified facility. SSM registered too.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>When is the best time to give it?</summary>
+            <div class="faq-body"><p>About an hour before bedtime works best, since magnesium helps little ones wind down for sleep.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Are there any side effects?</summary>
+            <div class="faq-body"><p>We use magnesium glycinate — the gentlest form — so it's easy on tummies. Start with the lower serving for your child's age.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Can I mix it into food or drinks?</summary>
+            <div class="faq-body"><p>Absolutely. Stir a scoop into water, milk, yoghurt or a smoothie — it dissolves easily with a light berry taste.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary>Do you offer a subscription?</summary>
+            <div class="faq-body"><p>Yes! Subscribe &amp; save 15% with free monthly delivery. Pause or cancel anytime.</p></div>
+          </details>
+        </div>
+      </div>
+      <!-- divider → related (cream) -->
+      <div class="divider divider-bottom" aria-hidden="true">
+        <svg class="divider-shape" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <path d="M0,90 L1440,90 L1440,52 C1200,22 960,72 720,45 C480,18 240,62 0,52 Z" fill="#FFF9E6"/>
+        </svg>
+        <svg class="divider-deco divider-tree-2" viewBox="0 0 60 90"><use href="#i-tree"/></svg>
+      </div>
+    </section>
+
+    <!-- ============ RELATED PRODUCTS ============ (woo: .related.products) -->
+    <section class="related related-products reveal" id="related" aria-labelledby="relatedTitle">
+      <svg class="related-deco related-deco-spark-1" viewBox="0 0 30 30" style="color:#FA6255" aria-hidden="true"><use href="#i-sparkle"/></svg>
+      <svg class="related-deco related-deco-spark-2" viewBox="0 0 30 30" style="color:#FDCB46" aria-hidden="true"><use href="#i-sparkle"/></svg>
+      <div class="container">
+        <span class="eyebrow" data-anim="reveal-up">Pairs well with</span>
+        <h2 id="relatedTitle" class="section-title" data-anim="word-reveal">More little <span>heroes</span></h2>
+        <div class="product-grid" data-anim="stagger-scale">
+          <article class="product-card">
+            <span class="product-tag">Happy tummy</span>
+            <img src="assets/products/prebiotics.png" alt="Ameer Prebiotics" class="product-img" />
+            <h3 class="product-name">Prebiotics</h3>
+            <p class="product-benefit">Daily gut-health support that keeps tummies happy and immunity humming.</p>
+            <a href="produk.html" class="btn btn-secondary">View Product →</a>
+          </article>
+          <article class="product-card">
+            <span class="product-tag">Strong defense</span>
+            <img src="assets/products/tigermilk-plus.png" alt="Tigermilk+ mushroom blend" class="product-img" />
+            <h3 class="product-name">Tigermilk+</h3>
+            <p class="product-benefit">Mushroom-powered immunity for strong lungs and fewer sick days.</p>
+            <a href="produk.html" class="btn btn-secondary">View Product →</a>
+          </article>
+          <article class="product-card">
+            <span class="product-tag">Calm &amp; sleep</span>
+            <img src="assets/products/mag-plus.png" alt="Mag+ Magnesium Glycinate" class="product-img" />
+            <h3 class="product-name">Mag+ Bundle</h3>
+            <p class="product-benefit">Stock up and save — a 3-month supply of calmer, cosier bedtimes.</p>
+            <a href="produk.html" class="btn btn-secondary">View Product →</a>
+          </article>
+        </div>
+      </div>
+      <!-- divider → footer (yellow) -->
+      <div class="divider divider-bottom" aria-hidden="true">
+        <svg class="divider-shape" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <path d="M0,90 L1440,90 L1440,45 C1200,18 960,68 720,38 C480,12 240,55 0,45 Z" fill="#FDCB46"/>
+        </svg>
+        <svg class="divider-deco divider-spark-1" viewBox="0 0 30 30" style="color:#FA6255"><use href="#i-sparkle"/></svg>
+        <svg class="divider-deco divider-spark-2" viewBox="0 0 30 30" style="color:#FFF9E6"><use href="#i-sparkle"/></svg>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ STICKY MOBILE ADD-TO-CART BAR ============ -->
+  <div class="sticky-buy" id="stickyBuy" aria-hidden="true">
+    <div class="container sticky-buy-inner">
+      <img src="assets/products/product-hero-mag1.png" alt="" class="sticky-buy-img" />
+      <div class="sticky-buy-info">
+        <strong>Mag+</strong>
+        <span>RM&nbsp;89</span>
+      </div>
+      <button type="button" class="btn btn-primary" data-add-to-cart>Add to cart</button>
+    </div>
+  </div>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.jpeg" alt="Ameer" />
+        <p>Kid-first nutrition, made with love.</p>
+        <p class="ssm">SSM 201701005157</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p><a href="tel:0143377432">014-3377432</a></p>
+        <p><a href="mailto:nutritionameer@gmail.com">nutritionameer@gmail.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="index.html#shop">Shop</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#recipes">Recipes</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#" class="soc" aria-label="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V9a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.43z"/></svg>
+          </a>
+          <a href="#" class="soc" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="soc" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col footer-newsletter">
+        <h4>Get 10% Off</h4>
+        <form class="mini-newsletter" onsubmit="event.preventDefault();">
+          <input type="email" placeholder="your@email.com" required />
+          <button type="submit" class="btn btn-primary">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <small>© 2026 Ameer Nutrition. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <!-- Add-to-cart toast -->
+  <div class="cart-toast" id="cartToast" role="status" aria-live="polite" hidden>
+    <span>🎉 Added to cart!</span>
+  </div>
+
+  <div class="popup" id="subscribePopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle" hidden>
+    <div class="popup-card">
+      <button class="popup-close" data-close aria-label="Close">×</button>
+      <svg class="popup-deco" viewBox="0 0 80 110" aria-hidden="true"><use href="#i-balloon"/></svg>
+      <h3 id="popupTitle">Get your <span>free</span> trial kit!</h3>
+      <p>Join the Ameer family and get 10% off your first order, plus parenting tips straight to your inbox.</p>
+      <form class="popup-form" onsubmit="event.preventDefault();">
+        <input type="email" placeholder="your@email.com" required />
+        <button type="submit" class="btn btn-primary">Send me the deal</button>
+      </form>
+      <small class="popup-fine">No spam. Unsubscribe anytime.</small>
+    </div>
+  </div>
+
+  <script src="js/script-v2.js" defer></script>
+  <script src="js/product-page.js" defer></script>
+</body>
+</html>
