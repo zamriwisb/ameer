@@ -3,23 +3,160 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ameer — Kids Nutrition (Cozy Cottage)</title>
+  <title>Ameer — Kids Nutrition (V2 · Motion)</title>
   <meta name="description" content="Ameer kids nutrition supplements — Mag+, Prebiotics, and Tigermilk+. Lovingly formulated for growing kids." />
   <link rel="icon" href="assets/logo.jpeg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Patrick+Hand&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Caveat+Brush&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/cottage.css" />
+  <link rel="stylesheet" href="css/sunny-v2.css" />
 </head>
-<body class="theme-cottage">
+<body class="theme-sunny theme-v2">
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar" id="scrollProgressBar"></div></div>
+
+  <!-- ============ SVG SYMBOL LIBRARY ============ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <!-- balloon -->
+      <symbol id="i-balloon" viewBox="0 0 80 110">
+        <defs>
+          <radialGradient id="balloonGrad" cx="35%" cy="30%">
+            <stop offset="0%" stop-color="#FFB5A8"/>
+            <stop offset="60%" stop-color="#FA6255"/>
+            <stop offset="100%" stop-color="#C73F30"/>
+          </radialGradient>
+        </defs>
+        <ellipse cx="40" cy="42" rx="32" ry="38" fill="url(#balloonGrad)"/>
+        <ellipse cx="28" cy="28" rx="8" ry="12" fill="#FFE6E0" opacity="0.6"/>
+        <path d="M37,78 L43,78 L40,86 Z" fill="#9D3A2F"/>
+        <path d="M40,86 Q34,94 40,100 T40,108" stroke="#3A3530" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </symbol>
+      <!-- cloud -->
+      <symbol id="i-cloud" viewBox="0 0 160 80">
+        <defs>
+          <linearGradient id="cloudGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="100%" stop-color="#F4ECDD"/>
+          </linearGradient>
+        </defs>
+        <ellipse cx="40" cy="50" rx="32" ry="22" fill="url(#cloudGrad)"/>
+        <ellipse cx="80" cy="38" rx="38" ry="28" fill="url(#cloudGrad)"/>
+        <ellipse cx="120" cy="50" rx="32" ry="22" fill="url(#cloudGrad)"/>
+        <ellipse cx="60" cy="56" rx="20" ry="14" fill="#ffffff"/>
+        <ellipse cx="100" cy="56" rx="22" ry="14" fill="#ffffff"/>
+      </symbol>
+      <!-- sun -->
+      <symbol id="i-sun" viewBox="0 0 160 160">
+        <defs>
+          <radialGradient id="sunGrad" cx="40%" cy="40%">
+            <stop offset="0%" stop-color="#FFF1AE"/>
+            <stop offset="60%" stop-color="#FDCB46"/>
+            <stop offset="100%" stop-color="#E5A823"/>
+          </radialGradient>
+        </defs>
+        <g stroke="#FDCB46" stroke-width="5" stroke-linecap="round">
+          <line x1="80" y1="6" x2="80" y2="24"/>
+          <line x1="80" y1="136" x2="80" y2="154"/>
+          <line x1="6" y1="80" x2="24" y2="80"/>
+          <line x1="136" y1="80" x2="154" y2="80"/>
+          <line x1="28" y1="28" x2="40" y2="40"/>
+          <line x1="120" y1="120" x2="132" y2="132"/>
+          <line x1="132" y1="28" x2="120" y2="40"/>
+          <line x1="40" y1="120" x2="28" y2="132"/>
+        </g>
+        <circle cx="80" cy="80" r="45" fill="url(#sunGrad)"/>
+        <circle cx="68" cy="68" r="10" fill="#FFF1AE" opacity="0.55"/>
+      </symbol>
+      <!-- butterfly -->
+      <symbol id="i-butterfly" viewBox="0 0 60 50">
+        <g>
+          <ellipse cx="18" cy="18" rx="14" ry="12" fill="#FA6255"/>
+          <ellipse cx="42" cy="18" rx="14" ry="12" fill="#FA6255"/>
+          <ellipse cx="18" cy="34" rx="11" ry="9" fill="#FDCB46"/>
+          <ellipse cx="42" cy="34" rx="11" ry="9" fill="#FDCB46"/>
+          <ellipse cx="30" cy="25" rx="2.5" ry="13" fill="#3A3530"/>
+          <circle cx="27" cy="13" r="2" fill="#3A3530"/>
+          <circle cx="33" cy="13" r="2" fill="#3A3530"/>
+        </g>
+      </symbol>
+      <!-- leaf -->
+      <symbol id="i-leaf" viewBox="0 0 40 50">
+        <path d="M20,2 C32,12 38,28 26,46 C18,42 4,30 8,16 C12,8 16,4 20,2 Z" fill="#A6D17D"/>
+        <path d="M20,4 Q22,22 24,44" stroke="#83AC5E" stroke-width="1.5" fill="none"/>
+      </symbol>
+      <!-- strawberry -->
+      <symbol id="i-strawberry" viewBox="0 0 40 50">
+        <path d="M6,20 C6,38 18,48 20,48 C22,48 34,38 34,20 C30,18 26,16 20,16 C14,16 10,18 6,20 Z" fill="#FA6255"/>
+        <g fill="#FFF9E6">
+          <circle cx="14" cy="26" r="1.3"/>
+          <circle cx="22" cy="24" r="1.3"/>
+          <circle cx="28" cy="30" r="1.3"/>
+          <circle cx="18" cy="34" r="1.3"/>
+          <circle cx="24" cy="40" r="1.3"/>
+          <circle cx="14" cy="38" r="1.3"/>
+        </g>
+        <path d="M12,18 L20,8 L28,18 Q24,14 20,16 Q16,14 12,18 Z" fill="#A6D17D"/>
+      </symbol>
+      <!-- carrot -->
+      <symbol id="i-carrot" viewBox="0 0 40 60">
+        <path d="M20,12 L8,52 Q20,58 32,52 Z" fill="#FA8E3D"/>
+        <path d="M14,22 L16,24 M22,30 L24,32 M16,36 L18,38 M22,42 L24,44" stroke="#C5631C" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16,14 L20,2 M20,12 L24,2 M20,12 L18,2 M20,12 L22,2" stroke="#A6D17D" stroke-width="3" stroke-linecap="round"/>
+      </symbol>
+      <!-- star sparkle -->
+      <symbol id="i-sparkle" viewBox="0 0 30 30">
+        <path d="M15,3 L17,13 L27,15 L17,17 L15,27 L13,17 L3,15 L13,13 Z" fill="currentColor"/>
+      </symbol>
+      <!-- quote mark -->
+      <symbol id="i-quote" viewBox="0 0 40 36">
+        <path d="M6,30 L6,18 C6,10 12,4 18,4 L18,10 C14,10 12,14 12,18 L18,18 L18,30 Z M22,30 L22,18 C22,10 28,4 34,4 L34,10 C30,10 28,14 28,18 L34,18 L34,30 Z" fill="currentColor" opacity="0.18"/>
+      </symbol>
+      <!-- pine tree -->
+      <symbol id="i-tree" viewBox="0 0 60 90">
+        <rect x="26" y="68" width="8" height="20" fill="#7A5A3F"/>
+        <polygon points="30,4 8,40 18,40 6,62 22,62 14,80 46,80 38,62 54,62 42,40 52,40" fill="#5B8E45" stroke="#3E6B2E" stroke-width="1.5" stroke-linejoin="round"/>
+        <circle cx="22" cy="36" r="2" fill="#FA6255"/>
+        <circle cx="40" cy="54" r="2" fill="#FDCB46"/>
+        <circle cx="30" cy="70" r="2" fill="#FA6255"/>
+      </symbol>
+      <!-- sail boat -->
+      <symbol id="i-boat" viewBox="0 0 80 70">
+        <path d="M4,46 L76,46 L66,62 L14,62 Z" fill="#FA6255" stroke="#9D3A2F" stroke-width="2" stroke-linejoin="round"/>
+        <rect x="38" y="10" width="3" height="38" fill="#7A5A3F"/>
+        <path d="M40,12 L40,44 L66,44 Z" fill="white" stroke="#3A3530" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M40,12 L40,38 L18,38 Z" fill="#FDCB46" stroke="#3A3530" stroke-width="1.5" stroke-linejoin="round"/>
+        <circle cx="40" cy="8" r="3" fill="#FA6255"/>
+      </symbol>
+      <!-- bird (simple) -->
+      <symbol id="i-bird" viewBox="0 0 60 28">
+        <path d="M2,16 Q14,2 26,16 Q34,8 42,16 Q50,8 58,16" stroke="#2A3A56" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <!-- kite -->
+      <symbol id="i-kite" viewBox="0 0 50 90">
+        <polygon points="25,4 44,30 25,56 6,30" fill="#FA6255" stroke="#3A3530" stroke-width="1.5" stroke-linejoin="round"/>
+        <line x1="25" y1="4" x2="25" y2="56" stroke="#3A3530" stroke-width="1"/>
+        <line x1="6" y1="30" x2="44" y2="30" stroke="#3A3530" stroke-width="1"/>
+        <path d="M25,56 Q22,64 26,70 T24,84" stroke="#3A3530" stroke-width="1.2" fill="none"/>
+        <path d="M22,66 L18,68 M27,72 L23,74 M22,80 L18,82" stroke="#FDCB46" stroke-width="2"/>
+      </symbol>
+      <!-- mini cloud (compact) -->
+      <symbol id="i-cloud-mini" viewBox="0 0 80 40">
+        <ellipse cx="20" cy="26" rx="16" ry="12" fill="white"/>
+        <ellipse cx="42" cy="20" rx="20" ry="15" fill="white"/>
+        <ellipse cx="62" cy="26" rx="16" ry="12" fill="white"/>
+      </symbol>
+    </defs>
+  </svg>
 
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a href="#" class="brand">
         <img src="assets/logo.jpeg" alt="Ameer logo" class="brand-logo" />
       </a>
-      <nav class="site-nav" aria-label="Primary">
+      <nav class="site-nav" id="primaryNav" aria-label="Primary">
         <a href="#home">Home</a>
         <a href="#shop">Shop</a>
         <a href="#about">About</a>
@@ -27,199 +164,300 @@
         <a href="#contact">Contact</a>
       </nav>
       <div class="header-actions">
-        <button class="icon-btn" aria-label="Cart">🛒</button>
+        <button class="icon-btn" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        </button>
         <a href="#shop" class="btn btn-primary">Shop Now</a>
+        <button class="menu-toggle" type="button" aria-controls="primaryNav" aria-expanded="false" aria-label="Open menu">
+          <span class="menu-toggle-bar" aria-hidden="true"></span>
+          <span class="menu-toggle-bar" aria-hidden="true"></span>
+          <span class="menu-toggle-bar" aria-hidden="true"></span>
+        </button>
       </div>
     </div>
   </header>
 
   <main>
+    <!-- ============ HERO ============ -->
     <section class="hero" id="home" aria-labelledby="heroTitle">
-      <div class="hero-bg">
-        <div class="butterfly butterfly-1" aria-hidden="true">🦋</div>
-        <div class="butterfly butterfly-2" aria-hidden="true">🦋</div>
+      <div class="hero-bg" aria-hidden="true">
+        <svg class="hero-sun" viewBox="0 0 160 160" data-parallax="0.25"><use href="#i-sun"/></svg>
+        <svg class="hero-cloud hero-cloud-1" viewBox="0 0 160 80" data-parallax="0.15"><use href="#i-cloud"/></svg>
+        <svg class="hero-cloud hero-cloud-2" viewBox="0 0 160 80" data-parallax="0.1"><use href="#i-cloud"/></svg>
+        <svg class="hero-cloud hero-cloud-3" viewBox="0 0 160 80" data-parallax="0.2"><use href="#i-cloud"/></svg>
+        <svg class="hero-balloon" viewBox="0 0 80 110" data-parallax="0.4"><use href="#i-balloon"/></svg>
+        <svg class="hero-deco hero-leaf-1" viewBox="0 0 40 50" data-parallax="0.3"><use href="#i-leaf"/></svg>
+        <svg class="hero-deco hero-leaf-2" viewBox="0 0 40 50" data-parallax="0.35"><use href="#i-leaf"/></svg>
+        <svg class="hero-deco hero-strawberry" viewBox="0 0 40 50" data-parallax="0.5"><use href="#i-strawberry"/></svg>
       </div>
       <div class="container hero-inner">
         <div class="hero-copy">
-          <h1 id="heroTitle" class="hero-title">
-            <span>Made</span> <span>with</span><br/>
-            <span>love</span>, <span>by</span> <span>moms.</span>
+          <span class="eyebrow" data-anim="reveal-up">Kid-loved · Mom-approved</span>
+          <h1 id="heroTitle" class="hero-title" data-anim="word-reveal">
+            <span>Tiny</span> <span>tummies,</span><br/>
+            <span>big</span> <span>smiles.</span>
           </h1>
-          <p class="hero-sub">From our little farmhouse to your kitchen table — wholesome nutrition for growing kids.</p>
-          <div class="hero-cta">
+          <p class="hero-sub" data-anim="reveal-up" data-anim-delay="500">Kid-formulated nutrition your family can trust — calm sleep, strong immunity, happy tummies.</p>
+          <div class="hero-cta" data-anim="reveal-up" data-anim-delay="700">
             <a href="#shop" class="btn btn-primary btn-large">Shop Now</a>
             <a href="#about" class="btn btn-ghost btn-large">Learn More</a>
           </div>
+          <ul class="hero-stats" role="list" data-anim="reveal-up" data-anim-delay="900">
+            <li><strong data-count="30000" data-count-suffix="k+">0</strong> happy mommies</li>
+            <li><strong data-count="3">0</strong> kid-first formulas</li>
+            <li><strong data-count="49" data-count-prefix="★ " data-count-divide="10">★ 0.0</strong> review average</li>
+          </ul>
         </div>
         <div class="hero-visual">
-          <svg viewBox="0 0 400 360" class="cottage-svg" role="img" aria-label="Illustration of a cottage with a kid holding an Ameer box">
-            <rect width="400" height="220" fill="#FAE0C9"/>
-            <path d="M0,260 Q120,180 240,240 T400,220 L400,360 L0,360 Z" fill="#B8C9A8"/>
-            <rect x="140" y="170" width="160" height="120" fill="#FFF6EB" stroke="#3A5635" stroke-width="3"/>
-            <polygon points="120,170 220,90 320,170" fill="#D57B0E" stroke="#3A5635" stroke-width="3"/>
-            <rect x="200" y="220" width="40" height="70" fill="#D57B0E" stroke="#3A5635" stroke-width="3"/>
-            <rect x="155" y="200" width="30" height="30" fill="#91BEF8" stroke="#3A5635" stroke-width="2"/>
-            <rect x="260" y="200" width="30" height="30" fill="#91BEF8" stroke="#3A5635" stroke-width="2"/>
-            <rect x="265" y="115" width="22" height="40" fill="#3A5635"/>
-            <circle class="smoke smoke-1" cx="276" cy="100" r="10" fill="white" opacity="0.85"/>
-            <circle class="smoke smoke-2" cx="284" cy="80" r="13" fill="white" opacity="0.7"/>
-            <circle class="smoke smoke-3" cx="278" cy="58" r="16" fill="white" opacity="0.55"/>
-            <g stroke="#3A5635" stroke-width="2">
-              <line x1="20" y1="320" x2="380" y2="320"/>
-              <line x1="20" y1="335" x2="380" y2="335"/>
-              <line x1="40" y1="305" x2="40" y2="355"/>
-              <line x1="80" y1="305" x2="80" y2="355"/>
-              <line x1="120" y1="305" x2="120" y2="355"/>
-              <line x1="340" y1="305" x2="340" y2="355"/>
-              <line x1="360" y1="305" x2="360" y2="355"/>
-            </g>
-            <g transform="translate(50,300)">
-              <polygon points="0,0 -6,20 6,20" fill="#D57B0E"/>
-              <path d="M0,0 L-4,-8 M0,0 L0,-10 M0,0 L4,-8" stroke="#3A5635" stroke-width="2"/>
-            </g>
-            <g transform="translate(340,300)">
-              <polygon points="0,0 -6,20 6,20" fill="#D57B0E"/>
-              <path d="M0,0 L-4,-8 M0,0 L0,-10 M0,0 L4,-8" stroke="#3A5635" stroke-width="2"/>
-            </g>
-            <circle cx="50" cy="60" r="28" fill="#FDCB46"/>
-            <g class="chicken">
-              <ellipse cx="140" cy="330" rx="14" ry="9" fill="white" stroke="#3A5635" stroke-width="2"/>
-              <circle cx="128" cy="324" r="6" fill="white" stroke="#3A5635" stroke-width="2"/>
-              <circle cx="126" cy="323" r="1.5" fill="#3A5635"/>
-              <polygon points="122,324 118,325 122,327" fill="#D57B0E"/>
-            </g>
-          </svg>
+          <div class="cloud-frame">
+            <img src="assets/hero-visual.png" alt="Ameer products: Magnesium+, Al Manna Prebiotic, and Tigermilk+" class="hero-product-shot" />
+            <svg class="cloud-frame-spark spark-1" viewBox="0 0 30 30" style="color:#FDCB46"><use href="#i-sparkle"/></svg>
+            <svg class="cloud-frame-spark spark-2" viewBox="0 0 30 30" style="color:#FA6255"><use href="#i-sparkle"/></svg>
+            <svg class="cloud-frame-spark spark-3" viewBox="0 0 30 30" style="color:#91BEF8"><use href="#i-sparkle"/></svg>
+          </div>
         </div>
       </div>
-    </section>
-
-    <div class="sep sep-wave" aria-hidden="true"></div>
-
-    <section class="about reveal" id="about" aria-labelledby="aboutTitle">
-      <div class="container about-inner">
-        <h2 id="aboutTitle" class="section-title">About <span>Ameer</span></h2>
-        <p class="about-lead">We make kid-first nutrition that real moms actually trust. Carefully formulated, halal-certified, and free from added sugar — because the little ones deserve the best start.</p>
-        <ul class="badge-row" role="list">
-          <li class="badge">🌙 Halal Certified</li>
-          <li class="badge">🍯 No Added Sugar</li>
-          <li class="badge">👶 Kids-Formulated</li>
-          <li class="badge">✅ SSM 201701005157</li>
-        </ul>
-        <a href="#story" class="link-arrow">Read our story →</a>
+      <!-- Hero bottom divider — green hills rising up (matches About color) -->
+      <div class="divider divider-bottom" aria-hidden="true">
+        <svg class="divider-shape" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <path d="M0,90 L1440,90 L1440,55 C1200,28 960,75 720,48 C480,20 240,65 0,55 Z" fill="#A6D17D"/>
+        </svg>
+        <svg class="divider-deco divider-tree" viewBox="0 0 60 90"><use href="#i-tree"/></svg>
       </div>
     </section>
 
-    <div class="sep sep-cloud" aria-hidden="true"></div>
+    <!-- ============ ABOUT ============ -->
+    <section class="about reveal" id="about" aria-labelledby="aboutTitle">
+      <svg class="about-deco about-deco-leaf-1" viewBox="0 0 40 50" aria-hidden="true"><use href="#i-leaf"/></svg>
+      <svg class="about-deco about-deco-leaf-2" viewBox="0 0 40 50" aria-hidden="true"><use href="#i-leaf"/></svg>
+      <svg class="about-deco about-deco-berry" viewBox="0 0 40 50" aria-hidden="true"><use href="#i-strawberry"/></svg>
+      <svg class="about-deco about-deco-butterfly" viewBox="0 0 60 50" aria-hidden="true"><use href="#i-butterfly"/></svg>
+      <div class="container about-inner">
+        <span class="eyebrow" data-anim="reveal-up">Our Promise</span>
+        <h2 id="aboutTitle" class="section-title" data-anim="word-reveal">Kid-first, <span>mom-trusted</span></h2>
+        <p class="about-lead" data-anim="reveal-up" data-anim-delay="300">We make nutrition that real moms actually feel good about. Carefully formulated, halal-certified, and free from added sugar — because the little ones deserve the best start.</p>
+        <ul class="badge-row" role="list" data-anim="stagger-up">
+          <li class="badge"><span class="badge-ico" style="background:#FA6255;color:white">✓</span>Halal Certified</li>
+          <li class="badge"><span class="badge-ico" style="background:#FDCB46;color:#3A3530">✓</span>No Added Sugar</li>
+          <li class="badge"><span class="badge-ico" style="background:#91BEF8;color:white">✓</span>Kids-Formulated</li>
+          <li class="badge"><span class="badge-ico" style="background:#3A3530;color:white">✓</span>SSM Registered</li>
+        </ul>
+        <a href="#story" class="link-arrow" data-anim="reveal-up" data-anim-delay="600">Read our full story →</a>
+      </div>
+      <!-- About bottom divider — yellow cloud puffs rising up (matches Products color) -->
+      <div class="divider divider-bottom" aria-hidden="true">
+        <svg class="divider-shape" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <g fill="#FDCB46">
+            <rect x="0" y="78" width="1440" height="12"/>
+            <ellipse cx="130" cy="74" rx="120" ry="32"/>
+            <ellipse cx="360" cy="70" rx="140" ry="38"/>
+            <ellipse cx="600" cy="74" rx="120" ry="32"/>
+            <ellipse cx="840" cy="70" rx="140" ry="38"/>
+            <ellipse cx="1080" cy="74" rx="120" ry="32"/>
+            <ellipse cx="1320" cy="70" rx="140" ry="38"/>
+          </g>
+        </svg>
+        <svg class="divider-deco divider-strawberry" viewBox="0 0 40 50"><use href="#i-strawberry"/></svg>
+      </div>
+    </section>
 
+    <!-- ============ PRODUCTS ============ -->
     <section class="products reveal" id="shop" aria-labelledby="productsTitle">
+      <svg class="products-deco products-deco-carrot" viewBox="0 0 40 60" aria-hidden="true"><use href="#i-carrot"/></svg>
+      <svg class="products-deco products-deco-cloud" viewBox="0 0 160 80" aria-hidden="true" style="opacity:0.5"><use href="#i-cloud"/></svg>
+      <svg class="products-deco products-deco-leaf" viewBox="0 0 40 50" aria-hidden="true"><use href="#i-leaf"/></svg>
       <div class="container">
-        <h2 id="productsTitle" class="section-title">Our <span>Little</span> Heroes</h2>
-        <div class="product-grid">
+        <span class="eyebrow" data-anim="reveal-up">Our little heroes</span>
+        <h2 id="productsTitle" class="section-title" data-anim="word-reveal">Three formulas, <span>endless</span> goodness</h2>
+        <div class="product-grid" data-anim="stagger-scale">
           <article class="product-card">
+            <span class="product-tag">Calm &amp; sleep</span>
             <img src="assets/products/mag-plus.png" alt="Mag+ Magnesium Glycinate" class="product-img" />
             <h3 class="product-name">Mag+</h3>
-            <p class="product-benefit">Calm focus and better sleep. Magnesium glycinate, kid-friendly.</p>
-            <a href="#" class="btn btn-secondary">View Product</a>
+            <p class="product-benefit">Magnesium glycinate that helps little minds settle and sleep through the night.</p>
+            <a href="#" class="btn btn-secondary">View Product →</a>
           </article>
           <article class="product-card">
+            <span class="product-tag">Happy tummy</span>
             <img src="assets/products/prebiotics.png" alt="Ameer Prebiotics" class="product-img" />
             <h3 class="product-name">Prebiotics</h3>
-            <p class="product-benefit">Happy tummy, happy kid. Daily gut-health support.</p>
-            <a href="#" class="btn btn-secondary">View Product</a>
+            <p class="product-benefit">Daily gut-health support that keeps tummies happy and immunity humming.</p>
+            <a href="#" class="btn btn-secondary">View Product →</a>
           </article>
           <article class="product-card">
+            <span class="product-tag">Strong defense</span>
             <img src="assets/products/tigermilk-plus.png" alt="Tigermilk+ mushroom blend" class="product-img" />
             <h3 class="product-name">Tigermilk+</h3>
-            <p class="product-benefit">Strong lungs, strong immunity. Mushroom-powered defense.</p>
-            <a href="#" class="btn btn-secondary">View Product</a>
+            <p class="product-benefit">Mushroom-powered immunity for strong lungs and fewer sick days.</p>
+            <a href="#" class="btn btn-secondary">View Product →</a>
           </article>
         </div>
       </div>
+      <!-- Products bottom divider — cream wave rising up (matches Tips color) -->
+      <div class="divider divider-bottom" aria-hidden="true">
+        <svg class="divider-shape" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <path d="M0,90 L1440,90 L1440,55 C1080,28 720,82 360,55 C180,42 90,58 0,55 Z" fill="#FFF9E6"/>
+        </svg>
+        <svg class="divider-deco divider-boat" viewBox="0 0 80 70"><use href="#i-boat"/></svg>
+      </div>
     </section>
 
-    <div class="sep sep-hill" aria-hidden="true"></div>
-
+    <!-- ============ TIPS ============ -->
     <section class="tips reveal" id="recipes" aria-labelledby="tipsTitle">
+      <svg class="tips-deco tips-deco-berry" viewBox="0 0 40 50" aria-hidden="true"><use href="#i-strawberry"/></svg>
+      <svg class="tips-deco tips-deco-leaf" viewBox="0 0 40 50" aria-hidden="true"><use href="#i-leaf"/></svg>
       <div class="container">
-        <h2 id="tipsTitle" class="section-title">Tips, <span>Recipes</span> &amp; More</h2>
-        <div class="tip-grid">
+        <span class="eyebrow" data-anim="reveal-up">Tips, recipes &amp; more</span>
+        <h2 id="tipsTitle" class="section-title" data-anim="word-reveal">From our <span>kitchen</span> to yours</h2>
+        <div class="tip-grid" data-anim="stagger-up">
           <article class="tip-card">
-            <div class="tip-img tip-img-1" role="img" aria-label="Parenting tip"></div>
+            <div class="tip-img tip-img-1" role="img" aria-label="Parenting tip">
+              <img src="assets/blog/tip-1.png" alt="" class="tip-photo" />
+              <span class="tip-emoji">🍓</span>
+            </div>
+            <span class="tip-tag">Parenting tip</span>
             <h3>Picky eater? 5 quick wins.</h3>
-            <p>Parenting tip</p>
-            <a href="#" class="link-arrow">Read →</a>
+            <p>Simple strategies real moms use to get nutrition into stubborn little ones.</p>
+            <a href="#" class="link-arrow">Read tip →</a>
           </article>
           <article class="tip-card">
-            <div class="tip-img tip-img-2" role="img" aria-label="Kid-friendly recipe"></div>
+            <div class="tip-img tip-img-2" role="img" aria-label="Kid-friendly recipe">
+              <img src="assets/blog/tip-2.png" alt="" class="tip-photo" />
+              <span class="tip-emoji">🥣</span>
+            </div>
+            <span class="tip-tag">Recipe</span>
             <h3>Banana-oat breakfast bowls.</h3>
-            <p>Kid-friendly recipe</p>
-            <a href="#" class="link-arrow">Read →</a>
+            <p>10-minute breakfasts kids will actually finish — packed with goodness.</p>
+            <a href="#" class="link-arrow">Read recipe →</a>
           </article>
           <article class="tip-card">
-            <div class="tip-img tip-img-3" role="img" aria-label="Weekly meal plan"></div>
+            <div class="tip-img tip-img-3" role="img" aria-label="Weekly meal plan">
+              <img src="assets/blog/tip-3.png" alt="" class="tip-photo" />
+              <span class="tip-emoji">📋</span>
+            </div>
+            <span class="tip-tag">Meal plan</span>
             <h3>Balanced meals, busy week.</h3>
-            <p>Meal plan</p>
-            <a href="#" class="link-arrow">Read →</a>
+            <p>A 7-day plan that takes the guesswork out of school-week lunches.</p>
+            <a href="#" class="link-arrow">Read plan →</a>
           </article>
         </div>
         <div class="center-cta">
           <a href="#" class="btn btn-secondary">View all tips</a>
         </div>
       </div>
-    </section>
-
-    <div class="sep sep-wave" aria-hidden="true"></div>
-
-    <section class="feedback reveal" aria-labelledby="feedbackTitle">
-      <div class="container">
-        <h2 id="feedbackTitle" class="section-title">Mommies <span>Love</span> Ameer</h2>
-        <div class="slider" data-slider>
-          <button class="slider-arrow slider-arrow-prev" data-prev aria-label="Previous">‹</button>
-          <ul class="slider-track" data-track role="list">
-            <li class="testimonial">
-              <img src="assets/feedback/feedback-1.png" alt="Mom and child review" />
-              <div class="stars" aria-label="5 stars">★★★★★</div>
-              <p>"My toddler actually sleeps through the night now. Mag+ has been a game changer."</p>
-              <cite>— Aisyah, KL</cite>
-            </li>
-            <li class="testimonial">
-              <img src="assets/feedback/feedback-2.png" alt="Mom review" />
-              <div class="stars" aria-label="5 stars">★★★★★</div>
-              <p>"Less colds, less drama. Tigermilk+ is now part of our morning routine."</p>
-              <cite>— Nadia, Selangor</cite>
-            </li>
-            <li class="testimonial">
-              <img src="assets/feedback/feedback-3.png" alt="Mom review" />
-              <div class="stars" aria-label="5 stars">★★★★★</div>
-              <p>"Finally a kids' supplement my child takes happily. Tummy issues gone."</p>
-              <cite>— Faridah, Penang</cite>
-            </li>
-            <li class="testimonial">
-              <img src="assets/feedback/feedback-4.png" alt="Mom review" />
-              <div class="stars" aria-label="5 stars">★★★★★</div>
-              <p>"Halal-certified and clean ingredients. That's all this mom needed to know."</p>
-              <cite>— Hana, Johor</cite>
-            </li>
-            <li class="testimonial">
-              <img src="assets/feedback/feedback-5.png" alt="Mom review" />
-              <div class="stars" aria-label="5 stars">★★★★★</div>
-              <p>"My boys love the taste. I love the science. Win-win."</p>
-              <cite>— Sarah, Putrajaya</cite>
-            </li>
-          </ul>
-          <button class="slider-arrow slider-arrow-next" data-next aria-label="Next">›</button>
-          <div class="slider-dots" data-dots aria-hidden="true"></div>
-        </div>
+      <!-- Tips bottom divider — river blue wave rising up (matches Feedback color) -->
+      <div class="divider divider-bottom" aria-hidden="true">
+        <svg class="divider-shape" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <path d="M0,90 L1440,90 L1440,50 C1080,80 720,20 360,50 C180,65 90,42 0,50 Z" fill="#91BEF8"/>
+        </svg>
+        <svg class="divider-deco divider-cloud-mini" viewBox="0 0 80 40"><use href="#i-cloud-mini"/></svg>
       </div>
     </section>
 
-    <div class="sep sep-cloud" aria-hidden="true"></div>
+    <!-- ============ FEEDBACK ============ -->
+    <section class="feedback reveal" aria-labelledby="feedbackTitle">
+      <svg class="feedback-deco feedback-deco-cloud-1" viewBox="0 0 160 80" aria-hidden="true"><use href="#i-cloud"/></svg>
+      <svg class="feedback-deco feedback-deco-cloud-2" viewBox="0 0 160 80" aria-hidden="true"><use href="#i-cloud"/></svg>
+      <div class="container">
+        <span class="eyebrow" data-anim="reveal-up" style="color:#FFF9E6">What moms say</span>
+        <h2 id="feedbackTitle" class="section-title" data-anim="word-reveal">Mommies <span>love</span> Ameer</h2>
+        <div class="slider" data-slider>
+          <button class="slider-arrow slider-arrow-prev" data-prev aria-label="Previous">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <ul class="slider-track" data-track role="list">
+            <li class="testimonial">
+              <svg class="quote-mark" viewBox="0 0 40 36" aria-hidden="true" style="color:#FA6255"><use href="#i-quote"/></svg>
+              <div class="stars" aria-label="5 stars">★★★★★</div>
+              <p>"My toddler actually sleeps through the night now. Mag+ has been a game changer for our whole family."</p>
+              <div class="who">
+                <img src="assets/feedback/feedback-1.png" alt="Aisyah" />
+                <div>
+                  <cite>Aisyah</cite>
+                  <small>Kuala Lumpur</small>
+                </div>
+              </div>
+            </li>
+            <li class="testimonial">
+              <svg class="quote-mark" viewBox="0 0 40 36" aria-hidden="true" style="color:#A6D17D"><use href="#i-quote"/></svg>
+              <div class="stars" aria-label="5 stars">★★★★★</div>
+              <p>"Less colds, less drama. Tigermilk+ is now part of our morning routine and I won't go back."</p>
+              <div class="who">
+                <img src="assets/feedback/feedback-2.png" alt="Nadia" />
+                <div>
+                  <cite>Nadia</cite>
+                  <small>Selangor</small>
+                </div>
+              </div>
+            </li>
+            <li class="testimonial">
+              <svg class="quote-mark" viewBox="0 0 40 36" aria-hidden="true" style="color:#FDCB46"><use href="#i-quote"/></svg>
+              <div class="stars" aria-label="5 stars">★★★★★</div>
+              <p>"Finally a kids' supplement my child takes happily. Tummy issues are completely gone."</p>
+              <div class="who">
+                <img src="assets/feedback/feedback-3.png" alt="Faridah" />
+                <div>
+                  <cite>Faridah</cite>
+                  <small>Penang</small>
+                </div>
+              </div>
+            </li>
+            <li class="testimonial">
+              <svg class="quote-mark" viewBox="0 0 40 36" aria-hidden="true" style="color:#91BEF8"><use href="#i-quote"/></svg>
+              <div class="stars" aria-label="5 stars">★★★★★</div>
+              <p>"Halal-certified and clean ingredients. That's all this mom needed to know."</p>
+              <div class="who">
+                <img src="assets/feedback/feedback-4.png" alt="Hana" />
+                <div>
+                  <cite>Hana</cite>
+                  <small>Johor</small>
+                </div>
+              </div>
+            </li>
+            <li class="testimonial">
+              <svg class="quote-mark" viewBox="0 0 40 36" aria-hidden="true" style="color:#FA6255"><use href="#i-quote"/></svg>
+              <div class="stars" aria-label="5 stars">★★★★★</div>
+              <p>"My boys love the taste. I love the science behind it. Win-win for everyone."</p>
+              <div class="who">
+                <img src="assets/feedback/feedback-5.png" alt="Sarah" />
+                <div>
+                  <cite>Sarah</cite>
+                  <small>Putrajaya</small>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <button class="slider-arrow slider-arrow-next" data-next aria-label="Next">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <div class="slider-dots" data-dots aria-hidden="true"></div>
+        </div>
+      </div>
+      <!-- Feedback bottom divider — sky blue cloud puffs rising up (matches Social color) -->
+      <div class="divider divider-bottom" aria-hidden="true">
+        <svg class="divider-shape" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <g fill="#B5D2F7">
+            <rect x="0" y="78" width="1440" height="12"/>
+            <ellipse cx="110" cy="74" rx="100" ry="28"/>
+            <ellipse cx="310" cy="72" rx="120" ry="34"/>
+            <ellipse cx="520" cy="74" rx="100" ry="28"/>
+            <ellipse cx="720" cy="72" rx="120" ry="34"/>
+            <ellipse cx="920" cy="74" rx="100" ry="28"/>
+            <ellipse cx="1130" cy="72" rx="120" ry="34"/>
+            <ellipse cx="1340" cy="74" rx="100" ry="28"/>
+          </g>
+        </svg>
+        <svg class="divider-deco divider-kite" viewBox="0 0 50 90"><use href="#i-kite"/></svg>
+      </div>
+    </section>
 
+    <!-- ============ SOCIAL ============ -->
     <section class="social reveal" aria-labelledby="socialTitle">
       <div class="container">
-        <h2 id="socialTitle" class="section-title">Follow <span>@ameer.nutrition</span></h2>
-        <p class="social-sub">Tips, parenting moments, and giveaways on TikTok &amp; Instagram.</p>
-        <div class="social-grid">
+        <span class="eyebrow" data-anim="reveal-up">@ameer.nutrition</span>
+        <h2 id="socialTitle" class="section-title" data-anim="word-reveal">Follow our <span>little</span> moments</h2>
+        <p class="social-sub" data-anim="reveal-up" data-anim-delay="300">Tips, parenting wins, and giveaways on TikTok &amp; Instagram.</p>
+        <div class="social-grid" data-anim="stagger-scale">
           <a href="#" class="social-tile social-tile-1" aria-label="Latest post 1"><img src="assets/blog/social-1.jpeg" alt="" class="social-photo" /></a>
           <a href="#" class="social-tile social-tile-2" aria-label="Latest post 2"><img src="assets/blog/social-2.jpeg" alt="" class="social-photo" /></a>
           <a href="#" class="social-tile social-tile-3" aria-label="Latest post 3"><img src="assets/blog/social-3.jpeg" alt="" class="social-photo" /></a>
@@ -230,23 +468,46 @@
           <a href="#" class="social-tile social-tile-8" aria-label="Latest post 8"><img src="assets/blog/social-2.jpeg" alt="" class="social-photo" /></a>
         </div>
       </div>
+      <!-- Social bottom divider — cream rolling hill rising up (matches Events color) -->
+      <div class="divider divider-bottom" aria-hidden="true">
+        <svg class="divider-shape" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <path d="M0,90 L1440,90 L1440,52 C1200,22 960,72 720,45 C480,18 240,62 0,52 Z" fill="#FFF9E6"/>
+        </svg>
+        <svg class="divider-deco divider-tree-2" viewBox="0 0 60 90"><use href="#i-tree"/></svg>
+      </div>
     </section>
 
-    <div class="sep sep-hill" aria-hidden="true"></div>
-
+    <!-- ============ EVENTS ============ -->
     <section class="events reveal" aria-labelledby="eventsTitle">
       <div class="container">
-        <h2 id="eventsTitle" class="section-title">Find Us <span>At</span></h2>
-        <div class="event-grid">
+        <span class="eyebrow" data-anim="reveal-up">Find us at</span>
+        <h2 id="eventsTitle" class="section-title" data-anim="word-reveal">Meet the <span>family</span> in person</h2>
+        <div class="event-grid" data-anim="stagger-up">
           <a href="#" class="event-card">
-            <img src="assets/event/expo-1.png" alt="World Expo event 1" />
-            <span>World Expo · Day 1</span>
+            <div class="event-img"><img src="assets/event/expo-1.png" alt="World Expo event day 1" /></div>
+            <div class="event-body">
+              <span class="event-tag">Upcoming</span>
+              <h3>World Expo · Day 1</h3>
+              <p>Free samples and meet-the-team. Drop by our booth.</p>
+            </div>
           </a>
           <a href="#" class="event-card">
-            <img src="assets/event/expo-2.png" alt="World Expo event 2" />
-            <span>World Expo · Day 2</span>
+            <div class="event-img"><img src="assets/event/expo-2.png" alt="World Expo event day 2" /></div>
+            <div class="event-body">
+              <span class="event-tag">Upcoming</span>
+              <h3>World Expo · Day 2</h3>
+              <p>Kid-nutrition Q&amp;A with our in-house expert.</p>
+            </div>
           </a>
         </div>
+      </div>
+      <!-- Events bottom divider — solid yellow hill rising up (matches yellow Footer) -->
+      <div class="divider divider-bottom" aria-hidden="true">
+        <svg class="divider-shape" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <path d="M0,90 L1440,90 L1440,45 C1200,18 960,68 720,38 C480,12 240,55 0,45 Z" fill="#FDCB46"/>
+        </svg>
+        <svg class="divider-deco divider-spark-1" viewBox="0 0 30 30" style="color:#FA6255"><use href="#i-sparkle"/></svg>
+        <svg class="divider-deco divider-spark-2" viewBox="0 0 30 30" style="color:#FFF9E6"><use href="#i-sparkle"/></svg>
       </div>
     </section>
   </main>
@@ -273,12 +534,18 @@
       <div class="footer-col">
         <h4>Follow Us</h4>
         <div class="social-icons">
-          <a href="#" class="soc soc-tt" aria-label="TikTok">TT</a>
-          <a href="#" class="soc soc-ig" aria-label="Instagram">IG</a>
-          <a href="#" class="soc soc-fb" aria-label="Facebook">FB</a>
+          <a href="#" class="soc" aria-label="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V9a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.43z"/></svg>
+          </a>
+          <a href="#" class="soc" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="soc" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
+          </a>
         </div>
       </div>
-      <div class="footer-col">
+      <div class="footer-col footer-newsletter">
         <h4>Get 10% Off</h4>
         <form class="mini-newsletter" onsubmit="event.preventDefault();">
           <input type="email" placeholder="your@email.com" required />
@@ -294,15 +561,17 @@
   <div class="popup" id="subscribePopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle" hidden>
     <div class="popup-card">
       <button class="popup-close" data-close aria-label="Close">×</button>
+      <svg class="popup-deco" viewBox="0 0 80 110" aria-hidden="true"><use href="#i-balloon"/></svg>
       <h3 id="popupTitle">Get your <span>free</span> trial kit!</h3>
-      <p>Join the Ameer family and get 10% off your first order.</p>
+      <p>Join the Ameer family and get 10% off your first order, plus parenting tips straight to your inbox.</p>
       <form class="popup-form" onsubmit="event.preventDefault();">
         <input type="email" placeholder="your@email.com" required />
         <button type="submit" class="btn btn-primary">Send me the deal</button>
       </form>
+      <small class="popup-fine">No spam. Unsubscribe anytime.</small>
     </div>
   </div>
 
-  <script src="js/script.js" defer></script>
+  <script src="js/script-v2.js" defer></script>
 </body>
 </html>
