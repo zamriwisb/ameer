@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Banana-Oat Breakfast Bowls · Ameer Kids Nutrition</title>
+  <meta name="description" content="A 10-minute banana-oat breakfast bowl kids will actually finish — naturally sweet, fibre-rich and endlessly customisable." />
+  <link rel="icon" href="assets/logo.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Caveat+Brush&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/sunny-v2.css" />
+  <link rel="stylesheet" href="css/article-page.css" />
+</head>
+<!--
+  ============================================================
+  ARTICLE / BLOG-POST PAGE — Banana-oat breakfast bowls
+  Built from the reusable article-picky-eater.html template.
+  Edit spots tagged "ARTICLE:" to publish a different post.
+  ============================================================
+-->
+<body class="theme-sunny theme-v2">
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar" id="scrollProgressBar"></div></div>
+
+  <!-- ============ SVG SYMBOL LIBRARY (shared with homepage) ============ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-balloon" viewBox="0 0 80 110">
+        <defs>
+          <radialGradient id="balloonGrad" cx="35%" cy="30%">
+            <stop offset="0%" stop-color="#FFB5A8"/><stop offset="60%" stop-color="#FA6255"/><stop offset="100%" stop-color="#C73F30"/>
+          </radialGradient>
+        </defs>
+        <ellipse cx="40" cy="42" rx="32" ry="38" fill="url(#balloonGrad)"/>
+        <ellipse cx="28" cy="28" rx="8" ry="12" fill="#FFE6E0" opacity="0.6"/>
+        <path d="M37,78 L43,78 L40,86 Z" fill="#9D3A2F"/>
+        <path d="M40,86 Q34,94 40,100 T40,108" stroke="#3A3530" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-cloud" viewBox="0 0 160 80">
+        <defs>
+          <linearGradient id="cloudGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#F4ECDD"/>
+          </linearGradient>
+        </defs>
+        <ellipse cx="40" cy="50" rx="32" ry="22" fill="url(#cloudGrad)"/>
+        <ellipse cx="80" cy="38" rx="38" ry="28" fill="url(#cloudGrad)"/>
+        <ellipse cx="120" cy="50" rx="32" ry="22" fill="url(#cloudGrad)"/>
+        <ellipse cx="60" cy="56" rx="20" ry="14" fill="#ffffff"/>
+        <ellipse cx="100" cy="56" rx="22" ry="14" fill="#ffffff"/>
+      </symbol>
+      <symbol id="i-leaf" viewBox="0 0 40 50">
+        <path d="M20,2 C32,12 38,28 26,46 C18,42 4,30 8,16 C12,8 16,4 20,2 Z" fill="#A6D17D"/>
+        <path d="M20,4 Q22,22 24,44" stroke="#83AC5E" stroke-width="1.5" fill="none"/>
+      </symbol>
+      <symbol id="i-strawberry" viewBox="0 0 40 50">
+        <path d="M6,20 C6,38 18,48 20,48 C22,48 34,38 34,20 C30,18 26,16 20,16 C14,16 10,18 6,20 Z" fill="#FA6255"/>
+        <g fill="#FFF9E6">
+          <circle cx="14" cy="26" r="1.3"/><circle cx="22" cy="24" r="1.3"/><circle cx="28" cy="30" r="1.3"/>
+          <circle cx="18" cy="34" r="1.3"/><circle cx="24" cy="40" r="1.3"/><circle cx="14" cy="38" r="1.3"/>
+        </g>
+        <path d="M12,18 L20,8 L28,18 Q24,14 20,16 Q16,14 12,18 Z" fill="#A6D17D"/>
+      </symbol>
+      <symbol id="i-carrot" viewBox="0 0 40 60">
+        <path d="M20,12 L8,52 Q20,58 32,52 Z" fill="#FA8E3D"/>
+        <path d="M14,22 L16,24 M22,30 L24,32 M16,36 L18,38 M22,42 L24,44" stroke="#C5631C" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16,14 L20,2 M20,12 L24,2 M20,12 L18,2 M20,12 L22,2" stroke="#A6D17D" stroke-width="3" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-sparkle" viewBox="0 0 30 30">
+        <path d="M15,3 L17,13 L27,15 L17,17 L15,27 L13,17 L3,15 L13,13 Z" fill="currentColor"/>
+      </symbol>
+      <symbol id="i-tree" viewBox="0 0 60 90">
+        <rect x="26" y="68" width="8" height="20" fill="#7A5A3F"/>
+        <polygon points="30,4 8,40 18,40 6,62 22,62 14,80 46,80 38,62 54,62 42,40 52,40" fill="#5B8E45" stroke="#3E6B2E" stroke-width="1.5" stroke-linejoin="round"/>
+        <circle cx="22" cy="36" r="2" fill="#FA6255"/><circle cx="40" cy="54" r="2" fill="#FDCB46"/><circle cx="30" cy="70" r="2" fill="#FA6255"/>
+      </symbol>
+      <symbol id="i-boat" viewBox="0 0 80 70">
+        <path d="M4,46 L76,46 L66,62 L14,62 Z" fill="#FA6255" stroke="#9D3A2F" stroke-width="2" stroke-linejoin="round"/>
+        <rect x="38" y="10" width="3" height="38" fill="#7A5A3F"/>
+        <path d="M40,12 L40,44 L66,44 Z" fill="white" stroke="#3A3530" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M40,12 L40,38 L18,38 Z" fill="#FDCB46" stroke="#3A3530" stroke-width="1.5" stroke-linejoin="round"/>
+        <circle cx="40" cy="8" r="3" fill="#FA6255"/>
+      </symbol>
+      <symbol id="i-cloud-mini" viewBox="0 0 80 40">
+        <ellipse cx="20" cy="26" rx="16" ry="12" fill="white"/>
+        <ellipse cx="42" cy="20" rx="20" ry="15" fill="white"/>
+        <ellipse cx="62" cy="26" rx="16" ry="12" fill="white"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/logo.jpeg" alt="Ameer logo" class="brand-logo" />
+      </a>
+      <nav class="site-nav" id="primaryNav" aria-label="Primary">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#shop">Shop</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#recipes">Recipes</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        </button>
+        <a href="index.html#shop" class="btn btn-primary">Shop Now</a>
+        <button class="menu-toggle" type="button" aria-controls="primaryNav" aria-expanded="false" aria-label="Open menu">
+          <span class="menu-toggle-bar" aria-hidden="true"></span>
+          <span class="menu-toggle-bar" aria-hidden="true"></span>
+          <span class="menu-toggle-bar" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ ARTICLE HERO ============ -->
+    <article class="article-hero" aria-labelledby="articleTitle">
+      <svg class="pm-deco pm-deco-leaf" viewBox="0 0 40 50" aria-hidden="true" style="position:absolute;top:18%;left:6%;width:42px;opacity:.6"><use href="#i-leaf"/></svg>
+      <svg class="pm-deco pm-deco-berry" viewBox="0 0 40 50" aria-hidden="true" style="position:absolute;top:24%;right:7%;width:40px;opacity:.6"><use href="#i-strawberry"/></svg>
+      <div class="container">
+        <nav class="woocommerce-breadcrumb" aria-label="Breadcrumb" data-anim="reveal-up">
+          <a href="index.html">Home</a> <span>/</span>
+          <a href="index.html#recipes">Tips &amp; Recipes</a> <span>/</span>
+          <!-- ARTICLE:title --><span aria-current="page">Banana-oat breakfast bowls</span>
+        </nav>
+
+        <span class="article-tag" data-anim="reveal-up"><!-- ARTICLE:tag -->Recipe</span>
+        <h1 class="article-title" id="articleTitle" data-anim="reveal-up" data-anim-delay="100"><!-- ARTICLE:title -->Banana-oat <span>breakfast bowls</span></h1>
+        <p class="article-lead" data-anim="reveal-up" data-anim-delay="200"><!-- ARTICLE:lead -->Naturally sweet, fibre-rich and ready in ten minutes flat — this is the no-fuss breakfast your little ones will actually finish, and you&rsquo;ll feel good about serving.</p>
+
+        <div class="article-meta" data-anim="reveal-up" data-anim-delay="300">
+          <span class="meta-author"><img src="assets/logo.jpeg" alt="Team Ameer" /><cite>Team Ameer</cite></span>
+          <span class="meta-dot" aria-hidden="true"></span>
+          <span class="meta-item">Published 28 March 2026</span>
+          <span class="meta-dot" aria-hidden="true"></span>
+          <span class="meta-item">3 min read</span>
+        </div>
+
+        <figure class="article-figure" data-anim="reveal-up" data-anim-delay="400">
+          <!-- ARTICLE:hero-image -->
+          <img src="assets/blog/tip-2.png" alt="A colourful banana-oat breakfast bowl topped with fruit" />
+        </figure>
+      </div>
+
+      <!-- divider → body (cream) -->
+      <div class="divider divider-bottom" aria-hidden="true">
+        <svg class="divider-shape" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <path d="M0,90 L1440,90 L1440,55 C1080,28 720,82 360,55 C180,42 90,58 0,55 Z" fill="#FFF9E6"/>
+        </svg>
+        <svg class="divider-deco divider-tree" viewBox="0 0 60 90"><use href="#i-tree"/></svg>
+      </div>
+    </article>
+
+    <!-- ============ ARTICLE BODY ============ -->
+    <section class="article-body reveal">
+      <div class="article-prose">
+        <!-- ARTICLE:body -->
+        <p>Mornings are hectic, and a breakfast that&rsquo;s quick <em>and</em> nourishing can feel like a unicorn. Enter the banana-oat bowl: oats give slow-release energy, banana brings natural sweetness (no added sugar needed), and the toppings are completely up to your little chef.</p>
+
+        <ul class="recipe-facts">
+          <li><span>⏱</span> 10 minutes</li>
+          <li><span>🍽</span> Serves 2 kids</li>
+          <li><span>👶</span> Age 1+</li>
+          <li><span>🌙</span> No added sugar</li>
+        </ul>
+
+        <h2>What you&rsquo;ll need</h2>
+        <ul>
+          <li>1 ripe banana, mashed</li>
+          <li>1 cup rolled oats</li>
+          <li>1¼ cups milk (or your preferred milk)</li>
+          <li>A pinch of cinnamon</li>
+          <li>Toppings: berries, a spoon of yoghurt, a sprinkle of seeds</li>
+        </ul>
+
+        <h2>How to make it</h2>
+        <div class="article-keycard">
+          <span class="kc-num">1</span>
+          <div>
+            <h3>Simmer</h3>
+            <p>Add oats, milk and the mashed banana to a small pot. Stir over medium heat for 4–5 minutes until creamy.</p>
+          </div>
+        </div>
+        <div class="article-keycard">
+          <span class="kc-num">2</span>
+          <div>
+            <h3>Season</h3>
+            <p>Stir in a pinch of cinnamon. Taste — the banana usually makes it sweet enough, no sugar required.</p>
+          </div>
+        </div>
+        <div class="article-keycard">
+          <span class="kc-num">3</span>
+          <div>
+            <h3>Top &amp; serve</h3>
+            <p>Spoon into bowls and let the kids decorate with berries, yoghurt and seeds. A &ldquo;rainbow&rdquo; bowl always wins.</p>
+          </div>
+        </div>
+
+        <blockquote>
+          <p>&ldquo;I make a big batch on Sunday and reheat it through the week. My twins love adding their own toppings — breakfast battles, gone.&rdquo; — Nadia, Selangor</p>
+        </blockquote>
+
+        <h2>Make it your own</h2>
+        <p>Swap berries for grated apple and raisins, stir in a spoon of nut butter for extra staying power, or blend it smooth for younger babies. Want to support digestion at the same time? Stir a scoop of flavourless <a href="prebiotics.html">prebiotic fiber</a> straight into the warm oats — it dissolves clear and they&rsquo;ll never know.</p>
+
+        <p>That&rsquo;s it — one pot, ten minutes, and a breakfast that fuels a busy morning of play.</p>
+      </div>
+
+      <!-- share / back -->
+      <div class="article-share">
+        <span>Share:</span>
+        <a href="#" aria-label="Share on Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
+        <a href="#" aria-label="Share on WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3c-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1z"/></svg></a>
+        <a href="#" aria-label="Share on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="index.html#recipes" class="back-link">← Back to all tips</a>
+      </div>
+
+      <!-- divider → related (river blue) -->
+      <div class="divider divider-bottom" aria-hidden="true">
+        <svg class="divider-shape" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <path d="M0,90 L1440,90 L1440,50 C1080,80 720,20 360,50 C180,65 90,42 0,50 Z" fill="#91BEF8"/>
+        </svg>
+        <svg class="divider-deco divider-cloud-mini" viewBox="0 0 80 40"><use href="#i-cloud-mini"/></svg>
+      </div>
+    </section>
+
+    <!-- ============ RELATED ARTICLES ============ -->
+    <section class="related-articles reveal" aria-labelledby="relatedTitle">
+      <div class="container">
+        <span class="eyebrow" data-anim="reveal-up">Keep reading</span>
+        <h2 id="relatedTitle" class="section-title" data-anim="word-reveal">More from our <span>kitchen</span></h2>
+        <div class="tip-grid" data-anim="stagger-up">
+          <article class="tip-card">
+            <div class="tip-img tip-img-1" role="img" aria-label="Parenting tip">
+              <img src="assets/blog/tip-1.png" alt="" class="tip-photo" />
+              <span class="tip-emoji">🍓</span>
+            </div>
+            <span class="tip-tag">Parenting tip</span>
+            <h3>Picky eater? 5 quick wins.</h3>
+            <p>Simple strategies real moms use to get nutrition into stubborn little ones.</p>
+            <a href="article-picky-eater.html" class="link-arrow">Read tip →</a>
+          </article>
+          <article class="tip-card">
+            <div class="tip-img tip-img-3" role="img" aria-label="Weekly meal plan">
+              <img src="assets/blog/tip-3.png" alt="" class="tip-photo" />
+              <span class="tip-emoji">📋</span>
+            </div>
+            <span class="tip-tag">Meal plan</span>
+            <h3>Balanced meals, busy week.</h3>
+            <p>A 7-day plan that takes the guesswork out of school-week lunches.</p>
+            <a href="article-meal-plan.html" class="link-arrow">Read plan →</a>
+          </article>
+          <article class="tip-card">
+            <div class="tip-img tip-img-2" role="img" aria-label="Calm &amp; sleep support">
+              <img src="assets/products/mag-plus.png" alt="" class="tip-photo" />
+              <span class="tip-emoji">😴</span>
+            </div>
+            <span class="tip-tag">Product</span>
+            <h3>Mag+ for calmer bedtimes.</h3>
+            <p>Gentle magnesium that helps little minds settle and sleep through the night.</p>
+            <a href="produk.html" class="link-arrow">View product →</a>
+          </article>
+        </div>
+      </div>
+
+      <!-- divider → footer (yellow) -->
+      <div class="divider divider-bottom" aria-hidden="true">
+        <svg class="divider-shape" viewBox="0 0 1440 90" preserveAspectRatio="none">
+          <path d="M0,90 L1440,90 L1440,45 C1200,18 960,68 720,38 C480,12 240,55 0,45 Z" fill="#FDCB46"/>
+        </svg>
+        <svg class="divider-deco divider-spark-1" viewBox="0 0 30 30" style="color:#FA6255"><use href="#i-sparkle"/></svg>
+        <svg class="divider-deco divider-spark-2" viewBox="0 0 30 30" style="color:#FFF9E6"><use href="#i-sparkle"/></svg>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo.jpeg" alt="Ameer" />
+        <p>Kid-first nutrition, made with love.</p>
+        <p class="ssm">SSM 201701005157</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p><a href="tel:0143377432">014-3377432</a></p>
+        <p><a href="mailto:nutritionameer@gmail.com">nutritionameer@gmail.com</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="index.html#shop">Shop</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#recipes">Recipes</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#" class="soc" aria-label="TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V9a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.43z"/></svg>
+          </a>
+          <a href="#" class="soc" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="soc" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col footer-newsletter">
+        <h4>Get 10% Off</h4>
+        <form class="mini-newsletter" onsubmit="event.preventDefault();">
+          <input type="email" placeholder="your@email.com" required />
+          <button type="submit" class="btn btn-primary">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <small>© 2026 Ameer Nutrition. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <div class="popup" id="subscribePopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle" hidden>
+    <div class="popup-card">
+      <button class="popup-close" data-close aria-label="Close">×</button>
+      <svg class="popup-deco" viewBox="0 0 80 110" aria-hidden="true"><use href="#i-balloon"/></svg>
+      <h3 id="popupTitle">Get your <span>free</span> trial kit!</h3>
+      <p>Join the Ameer family and get 10% off your first order, plus parenting tips straight to your inbox.</p>
+      <form class="popup-form" onsubmit="event.preventDefault();">
+        <input type="email" placeholder="your@email.com" required />
+        <button type="submit" class="btn btn-primary">Send me the deal</button>
+      </form>
+      <small class="popup-fine">No spam. Unsubscribe anytime.</small>
+    </div>
+  </div>
+
+  <script src="js/script-v2.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+/* ============================================================
+   Article / Blog Post Page — Ameer (Sunny V2 theme add-on)
+   Reuses base.css + sunny-v2.css tokens, buttons, dividers.
+   Sections: article-hero (sky) · article-body (cream) ·
+   related tips (reuses homepage .tips styling).
+   ============================================================ */
+
+/* ====== Hero ====== */
+/* .article-hero is an <article>, so it does NOT inherit position:relative +
+   overflow:hidden from base.css `main > section`. Set them here or the
+   absolutely-positioned divider/noise overlay escape the section, leaving a
+   bare straight line at the real hero/body boundary. */
+.theme-sunny .article-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 70% 12%, rgba(253,203,70,0.18) 0%, transparent 60%),
+    linear-gradient(180deg, var(--sky) 0%, var(--sky-2) 100%);
+  padding-top: 7rem !important;
+  padding-bottom: 8rem !important;
+}
+.theme-sunny .article-hero::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: var(--noise); pointer-events: none; opacity: 0.4;
+}
+.article-hero .container { position: relative; z-index: 2; max-width: min(820px, 92vw); }
+
+/* breadcrumb (mirrors product page) */
+.theme-sunny .woocommerce-breadcrumb {
+  font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 1.5rem;
+  font-weight: 600; text-align: center;
+}
+.theme-sunny .woocommerce-breadcrumb a:hover { color: var(--coral); }
+.theme-sunny .woocommerce-breadcrumb span { opacity: 0.5; margin: 0 0.4rem; }
+
+.theme-sunny .article-hero .article-tag {
+  display: block; width: fit-content; margin: 0 auto 1rem; text-align: center;
+  font-family: 'Caveat Brush', cursive; font-size: 1.25rem; line-height: 1;
+  color: var(--ink); background: var(--sun);
+  padding: 0.45rem 1.1rem; border-radius: 999px;
+  box-shadow: 0 4px 0 var(--sun-deep);
+}
+.theme-sunny .article-title {
+  font-family: 'Fredoka', system-ui, sans-serif; font-weight: 700;
+  letter-spacing: -0.01em; color: var(--ink);
+  font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.08;
+  text-align: center; margin-bottom: 1.25rem;
+}
+.theme-sunny .article-title span { color: var(--coral); }
+.theme-sunny .article-lead {
+  color: var(--ink-soft); font-size: 1.2rem; line-height: 1.6;
+  text-align: center; max-width: 60ch; margin: 0 auto 1.75rem;
+}
+
+/* meta row: avatar · author · date · read time */
+.article-meta {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 0.5rem 1rem; margin-bottom: 2.5rem;
+}
+.article-meta .meta-author { display: flex; align-items: center; gap: 0.6rem; }
+.article-meta img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+.article-meta cite { font-style: normal; font-weight: 800; color: var(--ink); }
+.article-meta .meta-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--ink-soft); opacity: 0.45; }
+.article-meta .meta-item { color: var(--ink-soft); font-weight: 600; font-size: 0.95rem; }
+
+/* hero figure */
+.article-figure { margin: 0; }
+.article-figure img {
+  width: 100%; aspect-ratio: 16 / 9; object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(60,60,80,0.22);
+}
+.article-figure figcaption {
+  text-align: center; color: var(--ink-soft); font-size: 0.85rem;
+  margin-top: 0.75rem; font-style: italic;
+}
+
+/* ====== Body / prose ====== */
+.theme-sunny .article-body {
+  background-color: var(--cream);
+  background-image:
+    linear-gradient(180deg, var(--cream) 0%, var(--cream) 90px, transparent 240px),
+    radial-gradient(circle at 12% 25%, rgba(253,203,70,0.10) 0%, transparent 40%);
+  padding-top: 5rem; padding-bottom: 9rem;
+}
+.theme-sunny .article-body::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: var(--noise); pointer-events: none; opacity: 0.4;
+}
+.article-prose { position: relative; z-index: 2; max-width: min(720px, 92vw); margin-inline: auto; }
+.article-prose > * + * { margin-top: 1.25rem; }
+.theme-sunny .article-prose p { color: var(--ink); font-size: 1.08rem; line-height: 1.75; }
+.theme-sunny .article-prose h2 {
+  font-family: 'Fredoka', system-ui, sans-serif; font-weight: 700;
+  color: var(--ink); font-size: clamp(1.4rem, 3vw, 1.9rem);
+  margin-top: 2.75rem; line-height: 1.2;
+}
+.theme-sunny .article-prose h3 {
+  font-family: 'Fredoka', system-ui, sans-serif; font-weight: 600;
+  color: var(--ink); font-size: 1.25rem; margin-top: 2rem;
+}
+.theme-sunny .article-prose a { color: var(--coral-deep); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.theme-sunny .article-prose strong { color: var(--ink); font-weight: 800; }
+.theme-sunny .article-prose ul,
+.theme-sunny .article-prose ol { padding-left: 1.4rem; color: var(--ink); font-size: 1.08rem; line-height: 1.7; }
+.theme-sunny .article-prose ul { list-style: none; padding-left: 0; }
+.theme-sunny .article-prose ul li {
+  position: relative; padding-left: 1.9rem; margin-top: 0.6rem;
+}
+.theme-sunny .article-prose ul li::before {
+  content: '🍓'; position: absolute; left: 0; top: 0.05rem; font-size: 1rem;
+}
+.theme-sunny .article-prose ol { list-style: decimal; }
+.theme-sunny .article-prose ol li { margin-top: 0.6rem; padding-left: 0.3rem; }
+.theme-sunny .article-prose ol li::marker { color: var(--coral); font-weight: 800; }
+
+/* callout / blockquote */
+.theme-sunny .article-prose blockquote {
+  background: white; border-left: 6px solid var(--coral);
+  border-radius: 16px; padding: 1.25rem 1.5rem; margin-top: 1.75rem;
+  box-shadow: 0 8px 22px rgba(60,60,80,0.08);
+}
+.theme-sunny .article-prose blockquote p { color: var(--ink-soft); font-style: italic; margin: 0; }
+
+/* step / tip cards inside prose */
+.article-keycard {
+  background: white; border-radius: 18px; padding: 1.4rem 1.5rem;
+  box-shadow: 0 8px 22px rgba(60,60,80,0.08); margin-top: 1.5rem;
+  display: flex; gap: 1rem; align-items: flex-start;
+}
+.article-keycard .kc-num {
+  flex: 0 0 auto; width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center; font-family: 'Fredoka', sans-serif;
+  font-weight: 700; color: white; background: var(--coral); font-size: 1.1rem;
+}
+.theme-sunny .article-keycard h3 { margin-top: 0; }
+.theme-sunny .article-keycard p { margin-top: 0.35rem; color: var(--ink-soft); font-size: 1rem; }
+
+/* recipe meta strip — its own pills, so opt out of the 🍓 prose bullet */
+.theme-sunny .article-prose ul.recipe-facts {
+  display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem;
+}
+.theme-sunny .article-prose ul.recipe-facts li {
+  background: white; border-radius: 999px; padding: 0.5rem 1.1rem;
+  font-weight: 700; color: var(--ink); font-size: 0.95rem;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.04);
+  margin-top: 0;
+}
+.theme-sunny .article-prose ul.recipe-facts li::before { content: none; }
+.recipe-facts li span { color: var(--coral-deep); }
+
+/* share row */
+.article-share {
+  position: relative; z-index: 2; max-width: min(720px, 92vw);
+  margin: 3rem auto 0; padding-top: 2rem; border-top: 2px dashed rgba(0,0,0,0.12);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem;
+}
+.article-share span { font-weight: 800; color: var(--ink); margin-right: 0.25rem; }
+.article-share a {
+  display: grid; place-items: center; width: 42px; height: 42px;
+  border-radius: 50%; background: white; color: var(--ink);
+  box-shadow: 0 4px 12px rgba(60,60,80,0.12); transition: transform 0.15s ease;
+}
+.article-share a:hover { transform: translateY(-3px); color: var(--coral); }
+.article-share .back-link {
+  margin-left: auto; width: auto; height: auto; border-radius: 999px;
+  white-space: nowrap; font-weight: 800; color: var(--coral-deep);
+  background: white; padding: 0.6rem 1.2rem;
+}
+.article-share .back-link:hover { transform: translateY(-3px); color: var(--coral-deep); }
+
+/* ====== Related articles (reuses .tip-grid / .tip-card from homepage) ====== */
+.theme-sunny .related-articles {
+  background-color: var(--river);
+  background-image:
+    linear-gradient(180deg, var(--river) 0%, var(--river) 90px, transparent 240px),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.15) 0%, transparent 35%);
+  padding-top: 5rem; padding-bottom: 9rem;
+}
+.theme-sunny .related-articles::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: var(--noise); pointer-events: none; opacity: 0.4;
+}
+.theme-sunny .related-articles .container { position: relative; z-index: 2; }
+.theme-sunny .related-articles .eyebrow { color: var(--cream); display: block; text-align: center; }
+.theme-sunny .related-articles .section-title { color: white; text-align: center; }
+.theme-sunny .related-articles .section-title span { color: var(--sun); }
+.theme-sunny .related-articles .section-title span::after { background: rgba(253,203,70,0.5); }
+
+/* ====== Divider decorations (size the SVGs per article section) ====== */
+/* Base .divider-deco has no dimensions — sizing is section-specific, so we
+   must define it for the article sections or the icons render full-size. */
+.theme-sunny .article-hero .divider-tree { width: 54px; height: 80px; top: -36px; left: 70%; }
+.theme-sunny .article-body .divider-cloud-mini {
+  width: 100px; height: 50px; top: -22px; right: 14%;
+  animation: divider-cloud-drift 30s linear infinite;
+}
+.theme-sunny .related-articles .divider-spark-1,
+.theme-sunny .related-articles .divider-spark-2 {
+  width: 22px; height: 22px;
+  animation: divider-twinkle 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px currentColor);
+}
+.theme-sunny .related-articles .divider-spark-1 { top: 18px; left: 28%; }
+.theme-sunny .related-articles .divider-spark-2 { top: 8px; right: 22%; animation-delay: 1.2s; }
+
+@media (min-width: 768px) {
+  .article-figure img { aspect-ratio: 21 / 9; }
+}
