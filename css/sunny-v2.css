@@ -382,7 +382,9 @@
 .theme-sunny .kid-icon-bob img { animation: bob 5s ease-in-out infinite; }
 .theme-sunny .kid-icon-sway img { animation: sway 6s ease-in-out infinite; }
 .theme-sunny .kid-icon-wiggle img { animation: wiggle 2.5s ease-in-out infinite; }
-.theme-sunny .kid-icon-fly img { animation: fly-across 26s linear infinite; }
+
+/* Berry/carrot SVG decorations swapped for square PNG stickers */
+.theme-sunny .kid-swap { height: auto !important; object-fit: contain; }
 
 /* Hero */
 .theme-sunny .kid-balloon-hero { top: 30%; right: 5%; width: clamp(38px, 5vw, 60px); }
@@ -393,20 +395,12 @@
 .theme-sunny .kid-ladybug-tips { top: 14%; left: 4%; width: clamp(32px, 4.5vw, 50px); }
 .theme-sunny .kid-balloon-tips { bottom: 18%; right: 4%; width: clamp(36px, 5vw, 58px); }
 /* Feedback */
-.theme-sunny .kid-bird-feedback { top: 18%; left: -60px; width: clamp(44px, 6vw, 72px); }
 .theme-sunny .kid-balloon-feedback { bottom: 20%; left: 4%; width: clamp(36px, 5vw, 58px); }
 /* Social */
 .theme-sunny .kid-tree-social { top: 14%; right: 4%; width: clamp(46px, 7vw, 80px); opacity: 0.92; }
 @keyframes wiggle {
   0%, 100% { transform: rotate(-7deg); }
   50% { transform: rotate(7deg); }
-}
-@keyframes fly-across {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(28vw, -14px); }
-  50% { transform: translate(56vw, 6px); }
-  75% { transform: translate(84vw, -10px); }
-  100% { transform: translate(112vw, 0); }
 }
 
 .theme-sunny .about .eyebrow { color: var(--coral); }
