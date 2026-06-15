@@ -22,7 +22,7 @@
 
   background: var(--sky);
   color: var(--ink);
-  font-family: 'Nunito', system-ui, sans-serif;
+  font-family: 'Delius', system-ui, sans-serif;
   font-weight: 400;
 }
 
@@ -183,6 +183,24 @@
   filter: drop-shadow(0 6px 10px rgba(0,0,0,0.12));
 }
 
+/* === Lorry driving across the yellow divider hill === */
+.theme-sunny .divider-lorry {
+  position: absolute;
+  left: -150px;
+  bottom: 30px;
+  width: 140px;
+  height: 70px;
+  z-index: 3;
+  pointer-events: none;
+  animation: lorry-drive 16s linear infinite;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+}
+
+@keyframes lorry-drive {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(100vw + 150px)); }
+}
+
 /* Decoration positions — sit on top of each divider's shape contour */
 .theme-sunny .hero .divider-tree {
   width: 54px; height: 80px;
@@ -190,8 +208,8 @@
 }
 .theme-sunny .products .divider-boat {
   width: 70px; height: 60px;
-  top: -18px; left: 22%;
-  animation: divider-sail 6s ease-in-out infinite;
+  top: -18px; left: -80px;
+  animation: divider-sail 14s linear infinite;
 }
 .theme-sunny .tips .divider-cloud-mini {
   width: 100px; height: 50px;
@@ -237,8 +255,14 @@
   100% { transform: translateX(0); }
 }
 @keyframes divider-sail {
-  0%, 100% { transform: translate(0, 0) rotate(-2deg); }
-  50% { transform: translate(40px, -4px) rotate(2deg); }
+  0%   { transform: translateX(0)                    translateY(0)    rotate(-1deg); }
+  12%  { transform: translateX(calc(12vw + 80px))    translateY(-5px) rotate(2deg); }
+  28%  { transform: translateX(calc(28vw + 80px))    translateY(3px)  rotate(-1.5deg); }
+  44%  { transform: translateX(calc(44vw + 80px))    translateY(-8px) rotate(0.5deg); }
+  58%  { transform: translateX(calc(58vw + 80px))    translateY(2px)  rotate(2.5deg); }
+  74%  { transform: translateX(calc(74vw + 80px))    translateY(-4px) rotate(-2deg); }
+  86%  { transform: translateX(calc(86vw + 80px))    translateY(5px)  rotate(1deg); }
+  100% { transform: translateX(calc(100vw + 80px))   translateY(0)    rotate(-1deg); }
 }
 @keyframes divider-kite-fly {
   0%, 100% { transform: rotate(-8deg) translateY(0); }
@@ -274,13 +298,13 @@
   position: absolute; width: 140px; height: 70px;
   filter: drop-shadow(0 8px 14px rgba(60,60,80,0.07));
 }
-.theme-sunny .hero-cloud-1 { top: 80px; left: -160px; animation: cloud-drift 70s linear infinite; }
-.theme-sunny .hero-cloud-2 { top: 40px; left: -160px; animation: cloud-drift 90s linear infinite 12s; transform: scale(0.7); }
-.theme-sunny .hero-cloud-3 { top: 200px; left: -160px; animation: cloud-drift 110s linear infinite 30s; transform: scale(1.1); }
+.theme-sunny .hero-cloud-1 { top: 80px; left: -160px; animation: cloud-drift 28s linear infinite; }
+.theme-sunny .hero-cloud-2 { top: 40px; left: -160px; animation: cloud-drift 35s linear infinite 12s; transform: scale(0.7); }
+.theme-sunny .hero-cloud-3 { top: 200px; left: -160px; animation: cloud-drift 42s linear infinite 30s; transform: scale(1.1); }
 .theme-sunny .hero-balloon {
   position: absolute; top: 20px; left: -80px;
   width: 60px; height: 84px;
-  animation: balloon-drift 50s linear infinite;
+  animation: balloon-drift 22s linear infinite;
   filter: drop-shadow(0 10px 16px rgba(250,98,85,0.25));
 }
 .theme-sunny .hero-deco { position: absolute; width: 36px; height: 45px; opacity: 0.65; }
@@ -325,6 +349,33 @@
 @keyframes sparkle {
   0%, 100% { transform: scale(0.6); opacity: 0.5; }
   50% { transform: scale(1.2); opacity: 1; }
+}
+@keyframes product-sway-a {
+  0%   { transform: translateX(0) rotate(0deg); }
+  18%  { transform: translateX(8px) rotate(1.2deg); }
+  36%  { transform: translateX(-5px) rotate(-0.8deg); }
+  54%  { transform: translateX(12px) rotate(0.4deg); }
+  72%  { transform: translateX(-9px) rotate(-1.1deg); }
+  88%  { transform: translateX(3px) rotate(0.6deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+@keyframes product-sway-b {
+  0%   { transform: translateX(0) rotate(0deg); }
+  22%  { transform: translateX(-7px) rotate(-1deg); }
+  40%  { transform: translateX(11px) rotate(0.7deg); }
+  58%  { transform: translateX(-3px) rotate(-0.5deg); }
+  76%  { transform: translateX(-10px) rotate(-1.3deg); }
+  88%  { transform: translateX(5px) rotate(0.9deg); }
+  100% { transform: translateX(0) rotate(0deg); }
+}
+@keyframes product-sway-c {
+  0%   { transform: translateX(0) rotate(0deg); }
+  14%  { transform: translateX(-4px) rotate(-0.6deg); }
+  32%  { transform: translateX(10px) rotate(1.5deg); }
+  48%  { transform: translateX(-7px) rotate(-1deg); }
+  66%  { transform: translateX(2px) rotate(0.2deg); }
+  82%  { transform: translateX(-11px) rotate(-1.4deg); }
+  100% { transform: translateX(0) rotate(0deg); }
 }
 
 /* ====== ABOUT ====== */
@@ -552,7 +603,7 @@
 .theme-sunny .social .section-title span::after { background: rgba(253,203,70,0.55); }
 .theme-sunny .social-sub { text-align: center; color: var(--night-2); margin-bottom: 2rem; }
 .theme-sunny .social-tile {
-  border-radius: 22px;
+  border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%;
   border: 3px solid white;
   box-shadow: 0 6px 16px rgba(60,60,80,0.15);
   position: relative;
@@ -614,7 +665,7 @@
   padding-bottom: 1.5rem;
 }
 .theme-sunny .site-footer a:hover { color: var(--coral); }
-.theme-sunny .footer-brand img { width: 64px; height: 64px; border-radius: 50%; }
+.theme-sunny .footer-brand img { width: auto; height: 56px; }
 .theme-sunny .footer-brand p { color: var(--ink); }
 .theme-sunny .footer-col h4 { font-family: 'Fredoka', sans-serif; color: var(--coral); margin-bottom: 0.85rem; font-size: 1rem; letter-spacing: 0.04em; text-transform: uppercase; }
 .theme-sunny .footer-col a { color: var(--ink); font-weight: 600; }
@@ -820,10 +871,14 @@ html:has(.theme-v2) { scroll-behavior: smooth; }
 .theme-v2 .product-card {
   transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.1, 1),
               box-shadow 0.45s cubic-bezier(0.2, 0.7, 0.1, 1);
+  animation: product-sway-a 7s ease-in-out infinite;
 }
+.theme-v2 .product-card:nth-child(2) { animation-name: product-sway-b; animation-duration: 8.3s; }
+.theme-v2 .product-card:nth-child(3) { animation-name: product-sway-c; animation-duration: 6.7s; }
 .theme-v2 .product-card:hover {
   transform: translateY(-12px) rotate(-1deg);
   box-shadow: 0 8px 0 rgba(0,0,0,0.06), 0 28px 50px rgba(60,60,80,0.22);
+  animation-play-state: paused;
 }
 .theme-v2 .product-img { transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.1, 1); }
 .theme-v2 .product-card:hover .product-img { transform: translateY(-6px) rotate(2deg) scale(1.06); }

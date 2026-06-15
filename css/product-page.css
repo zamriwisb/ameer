@@ -79,8 +79,8 @@
 .theme-sunny .related .section-title { color: var(--ink); text-align: center; }
 .theme-sunny .ingredients .section-title span::after { background: rgba(255,255,255,0.6); }
 .theme-sunny .reviews .section-title { color: white; text-align: center; }
-.theme-sunny .reviews .section-title span { color: var(--sun); }
-.theme-sunny .reviews .section-title span::after { background: rgba(253,203,70,0.5); }
+.theme-sunny .reviews .section-title span { color: var(--ink); }
+.theme-sunny .reviews .section-title span::after { background: rgba(253,203,70,0.6); }
 .theme-sunny .reviews > .container > .eyebrow { display: block; text-align: center; }
 
 /* ====== Divider decorations (reuse keyframes from sunny-v2.css) ====== */
@@ -103,6 +103,14 @@
 .theme-sunny .reviews-deco,
 .theme-sunny .related-deco { position: absolute; opacity: 0.7; pointer-events: none; z-index: 1; }
 .theme-sunny .pm-deco-cloud-1 { width: 150px; height: 75px; top: 14%; right: 3%; opacity: 0.55; }
+
+@media (max-width: 767px) {
+  .theme-sunny .pm-deco-cloud-1 {
+    left: -160px;
+    right: auto;
+    animation: cloud-drift 20s linear infinite;
+  }
+}
 .theme-sunny .pm-deco-leaf { width: 44px; height: 54px; bottom: 18%; left: 4%; transform: rotate(-25deg); }
 .theme-sunny .pm-deco-berry { width: 40px; height: 50px; top: 30%; left: 8%; animation: bob 5s ease-in-out infinite; }
 .theme-sunny .benefits-deco-leaf-1 { width: 50px; height: 60px; top: 16%; left: 5%; transform: rotate(-20deg); }
@@ -119,7 +127,7 @@
    BREADCRUMB
    ============================================================ */
 .theme-sunny .woocommerce-breadcrumb {
-  font-family: 'Nunito', sans-serif; font-weight: 700;
+  font-family: 'Delius', sans-serif; font-weight: 700;
   color: var(--ink-soft); font-size: 0.9rem;
   margin-bottom: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;
 }
@@ -203,7 +211,7 @@
 .theme-sunny .summary .price ins { text-decoration: none; }
 .theme-sunny .summary .price ins .amount { font-size: 2.2rem; font-weight: 700; color: var(--coral); }
 .theme-sunny .summary .price del { color: var(--ink-soft); opacity: 0.7; font-size: 1.2rem; }
-.theme-sunny .summary .price .price-note { color: var(--ink-soft); font-size: 0.9rem; font-family: 'Nunito', sans-serif; font-weight: 600; }
+.theme-sunny .summary .price .price-note { color: var(--ink-soft); font-size: 0.9rem; font-family: 'Delius', sans-serif; font-weight: 600; }
 
 .theme-sunny .woocommerce-product-details__short-description p { color: var(--ink-soft); font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem; }
 /* Flat feature list — descriptive text, not button-like pills */
