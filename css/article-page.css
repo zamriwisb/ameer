@@ -157,11 +157,39 @@
 }
 .article-share span { font-weight: 800; color: var(--ink); margin-right: 0.25rem; }
 .article-share a {
-  display: grid; place-items: center; width: 42px; height: 42px;
-  border-radius: 50%; background: white; color: var(--ink);
-  box-shadow: 0 4px 12px rgba(60,60,80,0.12); transition: transform 0.15s ease;
+  display: grid; place-items: center; width: 44px; height: 44px;
+  border: none;
+  color: white;
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,0.3),
+    0 4px 0 rgba(0,0,0,0.08),
+    0 8px 16px rgba(60,60,80,0.15);
+  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
 }
-.article-share a:hover { transform: translateY(-3px); color: var(--coral); }
+.article-share a:nth-child(2) { /* Facebook */
+  background: var(--coral);
+  border-radius: 60% 40% 35% 65% / 55% 45% 60% 40%;
+  transform: rotate(-6deg);
+}
+.article-share a:nth-child(3) { /* WhatsApp */
+  background: var(--meadow);
+  border-radius: 45% 55% 65% 35% / 40% 60% 45% 55%;
+  transform: rotate(5deg);
+}
+.article-share a:nth-child(4) { /* Instagram */
+  background: var(--river);
+  border-radius: 55% 45% 50% 50% / 60% 40% 55% 45%;
+  transform: rotate(-3deg);
+}
+.article-share a:hover { transform: rotate(0deg) scale(1.12); filter: brightness(1.08); color: white;
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,0.4),
+    0 6px 0 rgba(0,0,0,0.1),
+    0 12px 22px rgba(60,60,80,0.22);
+}
+.article-share a:nth-child(2):hover { transform: rotate(-6deg) scale(1.08); }
+.article-share a:nth-child(3):hover { transform: rotate(5deg) scale(1.08); }
+.article-share a:nth-child(4):hover { transform: rotate(-3deg) scale(1.08); }
 .article-share .back-link {
   margin-left: auto; width: auto; height: auto; border-radius: 999px;
   white-space: nowrap; font-weight: 800; color: var(--coral-deep);
