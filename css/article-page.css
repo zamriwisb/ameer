@@ -212,7 +212,7 @@
 .theme-sunny .related-articles .container { position: relative; z-index: 2; }
 .theme-sunny .related-articles .eyebrow { color: var(--cream); display: block; text-align: center; }
 .theme-sunny .related-articles .section-title { color: white; text-align: center; }
-.theme-sunny .related-articles .section-title span { color: var(--sun); }
+.theme-sunny .related-articles .section-title span { color: var(--ink); }
 .theme-sunny .related-articles .section-title span::after { background: rgba(253,203,70,0.5); }
 
 /* ====== Divider decorations (size the SVGs per article section) ====== */
