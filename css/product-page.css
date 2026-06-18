@@ -85,7 +85,6 @@
 
 /* ====== Divider decorations (reuse keyframes from sunny-v2.css) ====== */
 .theme-sunny .product-main .divider-tree { width: 54px; height: 80px; top: -36px; left: 70%; }
-.theme-sunny .benefits .divider-strawberry { width: 38px; height: 48px; top: -8px; left: 18%; animation: divider-bob 4s ease-in-out infinite; }
 .theme-sunny .ingredients .divider-boat { width: 70px; height: 60px; top: -18px; left: 22%; animation: divider-sail 6s ease-in-out infinite; }
 .theme-sunny .dosage .divider-cloud-mini { width: 100px; height: 50px; top: -22px; right: 14%; animation: divider-cloud-drift 30s linear infinite; }
 .theme-sunny .reviews .divider-kite { width: 46px; height: 82px; top: -42px; left: 72%; animation: divider-kite-fly 8s ease-in-out infinite; transform-origin: top center; }
@@ -111,13 +110,7 @@
     animation: cloud-drift 20s linear infinite;
   }
 }
-.theme-sunny .pm-deco-leaf { width: 44px; height: 54px; bottom: 18%; left: 4%; transform: rotate(-25deg); }
-.theme-sunny .pm-deco-berry { width: 40px; height: 50px; top: 30%; left: 8%; animation: bob 5s ease-in-out infinite; }
-.theme-sunny .benefits-deco-leaf-1 { width: 50px; height: 60px; top: 16%; left: 5%; transform: rotate(-20deg); }
-.theme-sunny .ingredients-deco-carrot { width: 50px; height: 70px; top: 20%; left: 4%; transform: rotate(-15deg); animation: bob 5s ease-in-out infinite; }
 .theme-sunny .ingredients-deco-cloud { width: 160px; height: 80px; top: 16%; right: 2%; }
-.theme-sunny .dosage-deco-berry { width: 46px; height: 56px; top: 18%; right: 6%; animation: bob 5s ease-in-out infinite; }
-.theme-sunny .dosage-deco-leaf { width: 45px; height: 55px; bottom: 16%; left: 6%; transform: rotate(-35deg); }
 .theme-sunny .reviews-deco-cloud-1 { width: 140px; height: 70px; top: 22%; left: -30px; }
 .theme-sunny .reviews-deco-cloud-2 { width: 180px; height: 90px; bottom: 12%; right: -40px; opacity: 0.5; }
 .theme-sunny .related-deco-spark-1 { width: 26px; height: 26px; top: 18%; left: 8%; animation: divider-twinkle 3s ease-in-out infinite; }

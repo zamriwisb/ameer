@@ -182,7 +182,6 @@ html.js-reveal .reveal.in-view { opacity: 1; transform: none; }
   object-fit: cover;
   z-index: 0;
 }
-.tip-img .tip-emoji { position: relative; z-index: 1; }
 
 /* === Social tile photo (stock placeholder) === */
 .social-tile { position: relative; overflow: hidden; }

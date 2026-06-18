@@ -307,9 +307,6 @@
   animation: balloon-drift 22s linear infinite;
   filter: drop-shadow(0 10px 16px rgba(250,98,85,0.25));
 }
-.theme-sunny .hero-deco { position: absolute; width: 36px; height: 45px; opacity: 0.65; }
-.theme-sunny .hero-leaf-1 { bottom: 60px; left: 5%; transform: rotate(-25deg); animation: sway 6s ease-in-out infinite; }
-.theme-sunny .hero-leaf-2 { bottom: 30px; right: 12%; transform: rotate(35deg); animation: sway 7s ease-in-out infinite 1s; }
 
 .theme-sunny .hero-stats {
   display: flex; gap: 1.5rem; margin-top: 1.75rem;
@@ -340,8 +337,6 @@
   0%, 100% { transform: rotate(var(--r, -25deg)); }
   50% { transform: rotate(calc(var(--r, -25deg) * -0.4)); }
 }
-.theme-sunny .hero-leaf-1 { --r: -25deg; }
-.theme-sunny .hero-leaf-2 { --r: 35deg; }
 @keyframes bob {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
@@ -397,9 +392,6 @@
   background-image: var(--noise); pointer-events: none; opacity: 0.5;
 }
 .theme-sunny .about-inner { text-align: center; max-width: 760px; }
-.theme-sunny .about-deco { position: absolute; opacity: 0.7; }
-.theme-sunny .about-deco-leaf-1 { width: 50px; height: 60px; top: 18%; left: 6%; transform: rotate(-20deg); }
-.theme-sunny .about-deco-leaf-2 { width: 42px; height: 52px; bottom: 20%; right: 8%; transform: rotate(40deg); }
 
 .theme-sunny .about .eyebrow { color: var(--coral); }
 .theme-sunny .about .section-title { color: var(--night); }
@@ -443,7 +435,6 @@
 
 .theme-sunny .products-deco { position: absolute; opacity: 0.7; }
 .theme-sunny .products-deco-cloud { width: 160px; height: 80px; top: 18%; right: 2%; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.05)); }
-.theme-sunny .products-deco-leaf { width: 50px; height: 60px; bottom: 12%; right: 8%; transform: rotate(50deg); }
 
 .theme-sunny .product-grid { margin-top: 2.5rem; }
 .theme-sunny .product-card {
@@ -499,8 +490,6 @@
 }
 .theme-sunny .tips .eyebrow { color: var(--coral); display: block; text-align: center; }
 .theme-sunny .tips .section-title { color: var(--ink); }
-.theme-sunny .tips-deco { position: absolute; opacity: 0.7; }
-.theme-sunny .tips-deco-leaf { width: 45px; height: 55px; bottom: 18%; left: 6%; transform: rotate(-35deg); }
 
 .theme-sunny .tip-grid { margin-top: 2.5rem; }
 .theme-sunny .tip-card {
@@ -513,12 +502,6 @@
 }
 .theme-sunny .tip-card:hover { transform: translateY(-4px); }
 .theme-sunny .tip-img { border-radius: 0; position: relative; }
-.theme-sunny .tip-emoji {
-  position: absolute; bottom: 12px; right: 14px;
-  width: 56px; height: 56px; border-radius: 50%;
-  background: white; display: grid; place-items: center;
-  font-size: 1.7rem; box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-}
 .theme-sunny .tip-img-1 { background: linear-gradient(135deg, var(--river) 0%, var(--coral) 100%); }
 .theme-sunny .tip-img-2 { background: linear-gradient(135deg, var(--meadow) 0%, var(--sun) 100%); }
 .theme-sunny .tip-img-3 { background: linear-gradient(135deg, var(--coral) 0%, var(--sun) 100%); }
