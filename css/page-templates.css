@@ -188,19 +188,20 @@
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
 }
 .theme-sunny .about-stat {
-  background: rgba(255,255,255,0.18);
-  border: 3px solid rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.92);
+  border: 3px solid var(--ink);
   border-radius: 20px;
   padding: 1.75rem 1rem;
   text-align: center;
+  box-shadow: 0 6px 0 rgba(45,38,32,0.12);
 }
 .theme-sunny .about-stat strong {
   display: block;
   font-family: 'Fredoka', system-ui, sans-serif; font-weight: 700;
   font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1;
-  color: #fff;
+  color: var(--night);
 }
-.theme-sunny .about-stat-label { display: block; margin-top: 0.5rem; color: #2c3a1f; font-weight: 600; }
+.theme-sunny .about-stat-label { display: block; margin-top: 0.5rem; color: var(--ink-soft); font-weight: 600; }
 
 /* Timeline */
 .theme-sunny .timeline {
