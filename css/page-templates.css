@@ -30,8 +30,8 @@
 .theme-sunny .faq .section-title,
 .theme-sunny .about-timeline .section-title { color: var(--ink); text-align: center; }
 .theme-sunny .about-stats .section-title { color: #fff; text-align: center; }
-.theme-sunny .about-stats .section-title span { color: var(--sun); }
-.theme-sunny .about-stats .section-title span::after { background: rgba(255,255,255,0.5); }
+.theme-sunny .about-stats .section-title span { color: var(--coral); }
+.theme-sunny .about-stats .section-title span::after { background: rgba(255,255,255,0.55); }
 
 /* ---- Per-section divider decoration positions ---- */
 .theme-sunny .about-page .divider-tree     { width: 54px; height: 80px; top: -36px; left: 70%; }
