@@ -1,78 +1,240 @@
-/* Contact + About custom page templates. Scoped to the theme body classes. */
+/* ============================================================
+   Contact + About custom page templates.
+   Scoped to the theme body classes (.theme-sunny / .theme-v2).
+   Reuses the homepage divider system, keyframes and tokens from
+   sunny-v2.css; sections chain colours like the front page.
+   ============================================================ */
 
-/* ---- Contact ---- */
-.theme-v2 .contact-section { padding: 3rem 0 4rem; }
-.theme-v2 .contact-grid {
-	display: grid;
-	grid-template-columns: 1fr 1.2fr;
-	gap: 2.5rem;
-	align-items: start;
-}
-.theme-v2 .contact-intro { margin-bottom: 1.5rem; color: var(--ink-soft); line-height: 1.6; }
-.theme-v2 .contact-list { list-style: none; margin: 0 0 1.5rem; padding: 0; display: grid; gap: 1rem; }
-.theme-v2 .contact-list li { display: grid; gap: 0.15rem; }
-.theme-v2 .contact-label {
-	font-family: 'Fredoka', system-ui, sans-serif;
-	font-weight: 700;
-	color: var(--coral);
-	font-size: 0.95rem;
-}
-.theme-v2 .contact-list a { color: var(--ink); font-weight: 600; }
-.theme-v2 .contact-list a:hover { color: var(--coral); }
-.theme-v2 .contact-social { display: flex; gap: 0.6rem; margin-bottom: 1rem; }
-.theme-v2 .contact-ssm { color: var(--ink-soft); font-size: 0.85rem; }
+/* ---- Section shells + backgrounds (next-colour dividers handle the blend) ---- */
+.theme-sunny .contact-section { background-color: var(--cream); padding: 4.5rem 0 9rem; }
+.theme-sunny .faq            { background-color: #B5D2F7; padding: 5rem 0 9rem; }
+.theme-sunny .about-page     { background-color: var(--cream); padding: 4rem 0 9rem; }
+.theme-sunny .about-stats    { background-color: #A6D17D; padding: 5rem 0 9rem; }
+.theme-sunny .about-timeline { background-color: var(--cream); padding: 5rem 0 9rem; }
 
-.theme-v2 .contact-form-wrap {
-	background: #fff;
-	border: 3px solid var(--ink);
-	border-radius: 22px;
-	padding: 1.75rem;
-	box-shadow: 0 10px 0 rgba(45,38,32,0.08);
-}
-.theme-v2 .contact-form-title { font-family: 'Fredoka', system-ui, sans-serif; margin: 0 0 1rem; color: var(--ink); }
-.theme-v2 .contact-form .form-row { display: grid; gap: 0.35rem; margin-bottom: 1rem; }
-.theme-v2 .contact-form label { font-weight: 700; color: var(--ink); font-size: 0.95rem; }
-.theme-v2 .contact-form input,
-.theme-v2 .contact-form textarea {
-	width: 100%;
-	padding: 0.7rem 0.9rem;
-	border: 2px solid #E7DFC9;
-	border-radius: 12px;
-	font: inherit;
-	background: var(--cream);
-	color: var(--ink);
-}
-.theme-v2 .contact-form input:focus,
-.theme-v2 .contact-form textarea:focus {
-	outline: none;
-	border-color: var(--coral);
-	background: #fff;
-}
-.theme-v2 .contact-form textarea { resize: vertical; }
-
-/* Honeypot — visually hidden but present for bots. */
-.theme-v2 .contact-hp {
-	position: absolute;
-	left: -9999px;
-	width: 1px;
-	height: 1px;
-	overflow: hidden;
+/* Shared grain overlay, matching homepage sections. */
+.theme-sunny .contact-section::after,
+.theme-sunny .faq::after,
+.theme-sunny .about-page::after,
+.theme-sunny .about-stats::after,
+.theme-sunny .about-timeline::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: var(--noise); pointer-events: none; opacity: 0.4; z-index: 1;
 }
 
-.theme-v2 .contact-notice { margin-top: 1rem; padding: 0.75rem 1rem; border-radius: 12px; font-weight: 600; }
-.theme-v2 .contact-notice-ok { background: rgba(166,209,125,0.25); color: var(--meadow-deep); }
-.theme-v2 .contact-notice-err { background: rgba(250,98,85,0.15); color: var(--coral-deep); }
+/* Eyebrow / title colours per background. */
+.theme-sunny .contact-section .eyebrow,
+.theme-sunny .faq .eyebrow,
+.theme-sunny .about-timeline .eyebrow { color: var(--coral); display: block; text-align: center; }
+.theme-sunny .contact-section .section-title,
+.theme-sunny .faq .section-title,
+.theme-sunny .about-timeline .section-title { color: var(--ink); text-align: center; }
+.theme-sunny .about-stats .section-title { color: #fff; text-align: center; }
+.theme-sunny .about-stats .section-title span { color: var(--sun); }
+.theme-sunny .about-stats .section-title span::after { background: rgba(255,255,255,0.5); }
 
-.theme-v2 .contact-map { margin-top: 2.5rem; border-radius: 22px; overflow: hidden; border: 3px solid var(--ink); }
-.theme-v2 .contact-map iframe { display: block; }
+/* ---- Per-section divider decoration positions ---- */
+.theme-sunny .about-page .divider-tree     { width: 54px; height: 80px; top: -36px; left: 70%; }
+.theme-sunny .about-stats .divider-boat    { width: 70px; height: 60px; top: -18px; left: -80px; animation: divider-sail 14s linear infinite; }
+.theme-sunny .contact-section .divider-cloud-mini { width: 100px; height: 50px; top: -22px; right: 14%; animation: divider-cloud-drift 30s linear infinite; }
+.theme-sunny .faq .divider-spark-1,
+.theme-sunny .faq .divider-spark-2,
+.theme-sunny .about-timeline .divider-spark-1,
+.theme-sunny .about-timeline .divider-spark-2 {
+  width: 22px; height: 22px;
+  animation: divider-twinkle 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px currentColor);
+}
+.theme-sunny .faq .divider-spark-1,
+.theme-sunny .about-timeline .divider-spark-1 { top: 18px; left: 28%; }
+.theme-sunny .faq .divider-spark-2,
+.theme-sunny .about-timeline .divider-spark-2 { top: 8px; right: 22%; animation-delay: 1.2s; }
 
-/* ---- About ---- */
-.theme-v2 .about-page { padding: 2rem 0 4rem; }
-.theme-v2 .about-page-intro { text-align: center; max-width: 60ch; margin: 0 auto 1.5rem; }
-.theme-v2 .about-page-intro .about-lead { margin-inline: auto; }
-.theme-v2 .about-page-body { margin-top: 2.5rem; }
-.theme-v2 .about-page-cta { text-align: center; margin-top: 2.5rem; }
+/* ---- Floating section deco clouds ---- */
+.theme-sunny .contact-deco,
+.theme-sunny .faq-deco,
+.theme-sunny .about-deco,
+.theme-sunny .timeline-deco { position: absolute; pointer-events: none; z-index: 1; opacity: 0.6; }
+.theme-sunny .contact-deco-cloud  { width: 150px; height: 75px; top: 10%; right: 3%; animation: bob 7s ease-in-out infinite; }
+.theme-sunny .faq-deco-cloud      { width: 140px; height: 70px; top: 14%; left: 2%; opacity: 0.5; animation: bob 8s ease-in-out infinite; }
+.theme-sunny .about-deco-cloud    { width: 150px; height: 75px; top: 12%; left: 2%; animation: bob 7s ease-in-out infinite; }
+.theme-sunny .timeline-deco-cloud { width: 140px; height: 70px; top: 12%; right: 3%; opacity: 0.5; animation: bob 8s ease-in-out infinite; }
 
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.theme-sunny .contact-intro { max-width: 60ch; margin: 0 auto 2rem; text-align: center; color: var(--ink-soft); line-height: 1.6; }
+
+.theme-sunny .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-top: 2.5rem;
+}
+
+/* Contact cards */
+.theme-sunny .contact-cards { display: flex; flex-direction: column; gap: 1rem; }
+.theme-sunny .contact-card {
+  display: flex; align-items: center; gap: 1rem;
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 18px;
+  padding: 1rem 1.15rem;
+  box-shadow: 0 5px 0 rgba(45,38,32,0.1);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  color: var(--ink);
+}
+.theme-sunny a.contact-card:hover { transform: translateY(-3px); box-shadow: 0 9px 0 rgba(45,38,32,0.12); }
+.theme-sunny .contact-card-static { cursor: default; }
+.theme-sunny .contact-card-ico {
+  flex: 0 0 auto;
+  width: 46px; height: 46px;
+  border-radius: 14px;
+  display: grid; place-items: center;
+  color: #fff;
+}
+.theme-sunny .contact-card-body { display: flex; flex-direction: column; gap: 0.1rem; min-width: 0; }
+.theme-sunny .contact-card-label { font-family: 'Fredoka', system-ui, sans-serif; font-weight: 700; color: var(--coral); font-size: 0.85rem; }
+.theme-sunny .contact-card-value { font-weight: 600; color: var(--ink); line-height: 1.35; word-break: break-word; }
+
+.theme-sunny .contact-social { display: flex; gap: 0.6rem; margin-top: 0.5rem; }
+.theme-sunny .contact-ssm { color: var(--ink-soft); font-size: 0.82rem; margin-top: 0.25rem; }
+
+/* Form card */
+.theme-sunny .contact-form-wrap {
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 22px;
+  padding: 1.85rem;
+  box-shadow: 0 10px 0 rgba(45,38,32,0.1);
+}
+.theme-sunny .contact-form-title { font-family: 'Fredoka', system-ui, sans-serif; margin: 0 0 1.1rem; color: var(--ink); font-size: 1.4rem; }
+.theme-sunny .contact-form .form-row { display: grid; gap: 0.35rem; margin-bottom: 1rem; }
+.theme-sunny .contact-form label { font-weight: 700; color: var(--ink); font-size: 0.95rem; }
+.theme-sunny .contact-form input,
+.theme-sunny .contact-form textarea {
+  width: 100%;
+  padding: 0.75rem 0.95rem;
+  border: 2px solid #E7DFC9;
+  border-radius: 12px;
+  font: inherit;
+  background: var(--cream);
+  color: var(--ink);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.theme-sunny .contact-form input:focus,
+.theme-sunny .contact-form textarea:focus { outline: none; border-color: var(--coral); background: #fff; }
+.theme-sunny .contact-form textarea { resize: vertical; min-height: 130px; }
+
+/* Honeypot — off-screen but submittable. */
+.theme-sunny .contact-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.theme-sunny .contact-notice { margin-top: 1rem; padding: 0.8rem 1rem; border-radius: 12px; font-weight: 600; }
+.theme-sunny .contact-notice-ok { background: rgba(166,209,125,0.3); color: var(--meadow-deep); }
+.theme-sunny .contact-notice-err { background: rgba(250,98,85,0.15); color: var(--coral-deep); }
+
+/* Map */
+.theme-sunny .contact-map {
+  margin-top: 2.5rem;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 3px solid var(--ink);
+  box-shadow: 0 8px 0 rgba(45,38,32,0.1);
+}
+.theme-sunny .contact-map iframe { display: block; }
+
+/* ============================================================
+   FAQ accordion (ported from product-page.css)
+   ============================================================ */
+.theme-sunny .faq-list { max-width: 760px; margin: 2.5rem auto 0; display: flex; flex-direction: column; gap: 1rem; }
+.theme-sunny .faq-item {
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 18px;
+  padding: 0 1.3rem;
+  box-shadow: 0 5px 0 rgba(45,38,32,0.1);
+}
+.theme-sunny .faq-item summary {
+  list-style: none; cursor: pointer;
+  font-family: 'Fredoka', system-ui, sans-serif; font-weight: 700;
+  color: var(--ink); font-size: 1.08rem;
+  padding: 1.2rem 2.5rem 1.2rem 0;
+  position: relative;
+}
+.theme-sunny .faq-item summary::-webkit-details-marker { display: none; }
+.theme-sunny .faq-item summary::after {
+  content: '+'; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--sun); color: var(--ink);
+  display: grid; place-items: center; font-size: 1.3rem; line-height: 1;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.theme-sunny .faq-item[open] summary::after { content: '−'; background: var(--coral); color: #fff; }
+.theme-sunny .faq-body { padding: 0 0 1.3rem; }
+.theme-sunny .faq-body p { color: var(--ink-soft); line-height: 1.6; margin: 0; }
+
+/* ============================================================
+   ABOUT — intro / stats / timeline
+   ============================================================ */
+.theme-sunny .about-page-intro { text-align: center; max-width: 62ch; margin: 0 auto 1.5rem; }
+.theme-sunny .about-page-intro .about-lead { margin-inline: auto; }
+.theme-sunny .about-page .badge-row { justify-content: center; }
+.theme-sunny .about-page-body { margin: 2.5rem auto 0; }
+
+/* Stats */
+.theme-sunny .about-stat-row {
+  list-style: none; margin: 2.5rem 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+}
+.theme-sunny .about-stat {
+  background: rgba(255,255,255,0.18);
+  border: 3px solid rgba(255,255,255,0.55);
+  border-radius: 20px;
+  padding: 1.75rem 1rem;
+  text-align: center;
+}
+.theme-sunny .about-stat strong {
+  display: block;
+  font-family: 'Fredoka', system-ui, sans-serif; font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1;
+  color: #fff;
+}
+.theme-sunny .about-stat-label { display: block; margin-top: 0.5rem; color: #2c3a1f; font-weight: 600; }
+
+/* Timeline */
+.theme-sunny .timeline {
+  list-style: none; margin: 2.5rem auto 0; padding: 0;
+  max-width: 720px; position: relative;
+}
+.theme-sunny .timeline::before {
+  content: ''; position: absolute; left: 13px; top: 8px; bottom: 8px;
+  width: 4px; border-radius: 4px;
+  background: repeating-linear-gradient(180deg, var(--sun) 0 14px, transparent 14px 24px);
+}
+.theme-sunny .timeline-item { position: relative; padding: 0 0 1.8rem 3rem; }
+.theme-sunny .timeline-item:last-child { padding-bottom: 0; }
+.theme-sunny .timeline-dot {
+  position: absolute; left: 4px; top: 4px;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--coral); border: 3px solid #fff;
+  box-shadow: 0 0 0 3px var(--coral);
+}
+.theme-sunny .timeline-year {
+  display: inline-block; margin-bottom: 0.3rem;
+  font-family: 'Fredoka', system-ui, sans-serif; font-weight: 700;
+  background: var(--sun); color: var(--ink);
+  padding: 0.1rem 0.7rem; border-radius: 999px; font-size: 0.9rem;
+}
+.theme-sunny .timeline-title { font-family: 'Fredoka', system-ui, sans-serif; margin: 0.25rem 0 0.35rem; color: var(--ink); font-size: 1.25rem; }
+.theme-sunny .timeline-text { color: var(--ink-soft); line-height: 1.6; margin: 0; }
+
+.theme-sunny .about-page-cta { text-align: center; margin-top: 3rem; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
 @media (max-width: 820px) {
-	.theme-v2 .contact-grid { grid-template-columns: 1fr; }
+  .theme-sunny .contact-grid { grid-template-columns: 1fr; }
+  .theme-sunny .about-stat-row { grid-template-columns: 1fr; gap: 1rem; }
 }
