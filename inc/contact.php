@@ -75,7 +75,7 @@ function ameer_contact_form() {
 		<button type="submit" class="btn btn-primary btn-large"><?php esc_html_e( 'Send Message', 'ameer' ); ?></button>
 	</form>
 	<?php if ( '1' === $sent ) : ?>
-		<p class="contact-notice contact-notice-ok"><?php esc_html_e( 'Thank you — we&rsquo;ve received your message and will reply soon! 🎉', 'ameer' ); ?></p>
+		<p class="contact-notice contact-notice-ok"><?php esc_html_e( 'Thank you — we’ve received your message and will reply soon! 🎉', 'ameer' ); ?></p>
 	<?php elseif ( 'invalid' === $sent ) : ?>
 		<p class="contact-notice contact-notice-err"><?php esc_html_e( 'Please fill in your name, a valid email, and a message.', 'ameer' ); ?></p>
 	<?php endif; ?>
