@@ -156,12 +156,19 @@
   transition: transform 0.6s cubic-bezier(0.2,0.7,0.1,1);
 }
 .theme-sunny .woocommerce-product-gallery__wrapper:hover img { transform: scale(1.04); }
+/* Must out-specify WooCommerce core's `.woocommerce span.onsale` (0,2,1),
+   else its olive round badge wins and its negative top/left tuck the pill under
+   the wrapper's overflow:hidden clip. NB: `.theme-sunny` and `.woocommerce` are
+   both on <body>, so `.theme-sunny .woocommerce …` can't match (an element is
+   not its own ancestor) — scope through the gallery wrapper instead (0,3,1). */
+.theme-sunny .woocommerce-product-gallery__wrapper span.onsale,
 .theme-sunny .onsale {
-  position: absolute; top: 18px; left: 18px; z-index: 2;
+  position: absolute; top: 18px; left: 18px; right: auto; bottom: auto; z-index: 3;
+  min-width: 0; min-height: 0; margin: 0;
   background: var(--coral); color: white;
   font-family: 'Fredoka', sans-serif; font-weight: 700;
-  font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase;
-  padding: 0.4rem 0.9rem; border-radius: 999px;
+  font-size: 0.78rem; line-height: 1; letter-spacing: 0.04em; text-transform: uppercase;
+  text-align: center; padding: 0.4rem 0.9rem; border-radius: 999px;
   transform: rotate(-4deg);
   box-shadow: 0 3px 0 var(--coral-deep);
 }
@@ -193,8 +200,18 @@
 .theme-sunny .woocommerce-product-rating {
   display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem;
 }
-.theme-sunny .star-rating { color: var(--sun-deep); letter-spacing: 0.1em; font-size: 1.05rem; }
-.theme-sunny .woocommerce-review-link { font-weight: 700; color: var(--ink-soft); font-size: 0.9rem; }
+/* Our ratings are plain text stars (★). Neutralize WooCommerce core's
+   font-based .star-rating (font-family:WooCommerce + a ::before of grey empty
+   stars) so its ghost glyphs don't render behind ours as a "shadow". */
+.theme-sunny .star-rating {
+  color: var(--sun-deep); letter-spacing: 0.1em; font-size: 1.05rem; line-height: 1;
+  font-family: inherit; width: auto; height: auto;
+  position: static; float: none; overflow: visible;
+}
+.theme-sunny .star-rating::before,
+.theme-sunny .star-rating span::before { content: none; }
+.theme-sunny .star-rating span { position: static; padding: 0; }
+.theme-sunny .woocommerce-review-link { font-weight: 700; color: var(--ink-soft); font-size: 0.9rem; line-height: 1; }
 .theme-sunny .woocommerce-review-link:hover { color: var(--coral); }
 
 .theme-sunny .summary .price {
@@ -202,8 +219,13 @@
   margin-bottom: 1.25rem; flex-wrap: wrap;
 }
 .theme-sunny .summary .price ins { text-decoration: none; }
-.theme-sunny .summary .price ins .amount { font-size: 2.2rem; font-weight: 700; color: var(--coral); }
+/* Sale price (<ins>) AND a lone, not-on-sale price (bare .amount direct child)
+   both render big + coral, so every product matches — not just the seeded ones
+   that happen to have a sale price. */
+.theme-sunny .summary .price ins .amount,
+.theme-sunny .summary .price > .amount { font-size: 2.2rem; font-weight: 700; color: var(--coral); }
 .theme-sunny .summary .price del { color: var(--ink-soft); opacity: 0.7; font-size: 1.2rem; }
+.theme-sunny .summary .price del .amount { font-size: inherit; font-weight: 400; color: inherit; }
 .theme-sunny .summary .price .price-note { color: var(--ink-soft); font-size: 0.9rem; font-family: 'Delius', sans-serif; font-weight: 600; }
 
 .theme-sunny .woocommerce-product-details__short-description p { color: var(--ink-soft); font-size: 1.05rem; line-height: 1.6; margin-bottom: 1rem; }
@@ -347,9 +369,53 @@
 .theme-sunny .review-score .star-rating { font-size: 1.2rem; }
 .theme-sunny .review-score small { display: block; color: var(--ink-soft); font-size: 0.82rem; margin-top: 0.4rem; }
 .theme-sunny .review-bars { display: flex; flex-direction: column; gap: 0.45rem; }
-.theme-sunny .review-bars li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.82rem; font-weight: 700; color: var(--ink-soft); }
+.theme-sunny .review-bars li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.82rem; font-weight: 700; color: var(--ink-soft); line-height: 1; }
 .theme-sunny .review-bars .bar { flex: 1; height: 10px; border-radius: 999px; background: rgba(45,38,32,0.1); overflow: hidden; }
 .theme-sunny .review-bars .bar > span { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--sun), var(--coral)); }
+
+/* ====== Real (working) customer reviews: list + submission form ====== */
+.theme-sunny .review-io { max-width: 760px; margin: 3rem auto 0; }
+.theme-sunny .review-io-title,
+.theme-sunny .review-form-title { color: white; font-family: 'Fredoka', sans-serif; font-size: 1.4rem; text-align: center; margin: 0 0 1.5rem; }
+.theme-sunny .review-empty { color: #FFF9E6; text-align: center; font-size: 1.02rem; margin-bottom: 1.5rem; }
+.theme-sunny .review-list { display: grid; gap: 1.25rem; margin: 0 0 2.5rem; }
+.theme-sunny .review-item p { margin: 0 0 0.75rem; }
+.theme-sunny .review-item .who small { color: var(--ink-soft); }
+
+/* "Write a review" reveals the form (collapsed by default). Header is a sticky
+   ~83px bar, so offset the scroll target so it isn't tucked underneath. */
+.theme-sunny .review-cta { text-align: center; margin-top: 0.5rem; }
+.theme-sunny .review-form-wrap.is-collapsed { display: none; }
+.theme-sunny #review-form,
+.theme-sunny #customer-reviews { scroll-margin-top: 110px; }
+
+/* Submission card sits on the dark river bg → white card for legibility. */
+.theme-sunny .review-form-wrap {
+  background: #fff; border-radius: 22px; padding: 1.75rem 1.75rem 2rem;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.06), 0 14px 30px rgba(0,0,0,0.12);
+}
+.theme-sunny .review-form-wrap .review-form-title { color: var(--ink); }
+.theme-sunny .review-login { text-align: center; color: var(--ink); margin: 0; }
+.theme-sunny .review-login a { color: var(--coral); font-weight: 700; text-decoration: underline; }
+.theme-sunny .comment-form-rating,
+.theme-sunny .comment-form-comment,
+.theme-sunny .comment-form-author,
+.theme-sunny .comment-form-email { margin-bottom: 1rem; }
+.theme-sunny .review-form-wrap label { display: block; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; font-size: 0.95rem; }
+.theme-sunny .review-form-wrap select,
+.theme-sunny .review-form-wrap textarea,
+.theme-sunny .review-form-wrap input[type="text"],
+.theme-sunny .review-form-wrap input[type="email"] {
+  width: 100%; font: inherit; color: var(--ink);
+  border: 2px solid rgba(45,38,32,0.14); border-radius: 14px;
+  padding: 0.7rem 0.9rem; background: #FFFDF7;
+}
+.theme-sunny .review-form-wrap select { max-width: 260px; }
+.theme-sunny .review-form-wrap textarea { resize: vertical; min-height: 130px; }
+.theme-sunny .review-form-wrap select:focus,
+.theme-sunny .review-form-wrap textarea:focus,
+.theme-sunny .review-form-wrap input:focus { outline: none; border-color: var(--coral); }
+.theme-sunny .review-form-wrap .form-submit { margin: 0.5rem 0 0; }
 
 .theme-sunny .review-grid {
   display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 0.5rem;

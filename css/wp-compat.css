@@ -1,0 +1,127 @@
+/* ==========================================================================
+   WordPress markup compatibility shims.
+   The original static markup used hand-written elements; WordPress core,
+   wp_nav_menu and WooCommerce emit slightly different markup. These rules
+   bridge the gap without editing the original base.css / sunny-v2.css.
+   ========================================================================== */
+
+/* --- Primary nav: wp_nav_menu wraps links in <li> --- */
+.site-nav { list-style: none; margin: 0; padding: 0; }
+.site-nav li { margin: 0; }
+@media (max-width: 767px) {
+	.theme-sunny .site-nav li:last-child a { border-bottom: none; }
+}
+
+/* --- Footer quick-links menu (wp_nav_menu) --- */
+.footer-col .footer-menu { list-style: none; margin: 0; padding: 0; }
+.footer-col .footer-menu li { margin: 0; }
+.footer-col .footer-menu a { display: block; }
+
+/* --- Custom logo: match the original .brand-logo sizing --- */
+.site-header .custom-logo-link { display: inline-flex; align-items: center; }
+.site-header .custom-logo { width: auto; height: 48px; }
+
+/* On WooCommerce pages, `.woocommerce img { height:auto }` (0,1,1) outweighs the
+   base `.brand-logo` (0,1,0) rule and balloons the logo to its natural size.
+   Re-assert the header logo size with higher specificity. */
+.site-header .brand .brand-logo,
+.site-header a.brand img.brand-logo,
+.woocommerce .site-header .brand-logo,
+.site-header .custom-logo { height: 48px; width: auto; max-width: none; }
+
+/* --- Header cart count badge --- */
+.header-actions .icon-btn { position: relative; display: inline-flex; align-items: center; }
+.header-actions .cart-count {
+	position: absolute;
+	top: -6px; right: -8px;
+	min-width: 18px; height: 18px;
+	padding: 0 4px;
+	border-radius: 999px;
+	background: var(--coral, #FA6255);
+	color: #fff;
+	font-size: 0.7rem; font-weight: 700; line-height: 18px;
+	text-align: center;
+}
+.header-actions .cart-count[hidden] { display: none; }
+
+/* --- Newsletter inline feedback --- */
+.newsletter-thanks { display: block; margin-top: 0.5rem; font-weight: 700; color: var(--coral-deep, #C73F30); }
+
+/* --- Pagination (the_posts_pagination) --- */
+.pagination { margin-top: 2.5rem; }
+.pagination .nav-links { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+.pagination .page-numbers {
+	display: inline-flex; align-items: center; justify-content: center;
+	min-width: 42px; height: 42px; padding: 0 0.75rem;
+	border-radius: 999px; font-weight: 700;
+	background: #fff; box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+.pagination .page-numbers.current { background: var(--sun, #FDCB46); color: var(--ink, #2D2620); }
+
+/* --- WordPress alignment / caption helpers for post content --- */
+.article-prose img { border-radius: 18px; }
+.article-prose .aligncenter { margin-inline: auto; }
+.article-prose .alignright { float: right; margin: 0 0 1rem 1.5rem; }
+.article-prose .alignleft { float: left; margin: 0 1.5rem 1rem 0; }
+.article-prose figure { margin: 1.5rem 0; }
+.article-prose .wp-caption-text,
+.article-prose figcaption { font-size: 0.9rem; opacity: 0.75; text-align: center; margin-top: 0.5rem; }
+
+/* --- Single product: anchor the absolutely-positioned sale flash --- */
+.product.type-product { position: relative; }
+
+/* WooCommerce's general stylesheet floats the gallery/summary and caps them at
+   48% width. Inside our CSS grid that collapses each to half a column. Reset. */
+.product.type-product .woocommerce-product-gallery,
+.product.type-product .summary.entry-summary {
+	width: auto;
+	float: none;
+	margin: 0;
+}
+.product.type-product .woocommerce-product-gallery__wrapper { width: auto; }
+
+/* --- WooCommerce native gallery: keep it tidy inside the product layout --- */
+.woocommerce-product-gallery { position: relative; }
+.woocommerce-product-gallery .flex-viewport { border-radius: 24px; overflow: hidden; }
+.woocommerce-product-gallery__image img { border-radius: 24px; }
+.woocommerce-product-gallery .flex-control-thumbs { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0 0; padding: 0; list-style: none; }
+.woocommerce-product-gallery .flex-control-thumbs li { width: 64px; }
+.woocommerce-product-gallery .flex-control-thumbs img { border-radius: 12px; cursor: pointer; opacity: 0.7; transition: opacity 0.15s ease; }
+.woocommerce-product-gallery .flex-control-thumbs img.flex-active,
+.woocommerce-product-gallery .flex-control-thumbs img:hover { opacity: 1; }
+.woocommerce-product-gallery__trigger { position: absolute; top: 1rem; right: 1rem; z-index: 5; }
+
+/* --- Shop / catalog archive grid: WC ul.products holding themed cards --- */
+.woocommerce ul.products,
+ul.products {
+	list-style: none; margin: 0; padding: 0;
+	display: grid; gap: 1.5rem;
+	grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 768px) {
+	.woocommerce ul.products,
+	ul.products { grid-template-columns: repeat(3, 1fr); }
+}
+ul.products li.ameer-product-li { margin: 0; width: auto; float: none; }
+ul.products li.ameer-product-li::before { content: none; }
+
+/* WooCommerce result count + ordering on the shop page */
+.woocommerce-result-count { opacity: 0.7; }
+.woocommerce-ordering { margin-bottom: 1.5rem; }
+
+/* --- Single-product add-to-cart wrapper --- */
+.ameer-add-to-cart .added_to_cart { align-self: center; font-weight: 700; }
+
+/* --- WooCommerce notices inside themed sections --- */
+.woocommerce-notices-wrapper:empty { display: none; }
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error {
+	position: relative;
+	list-style: none; margin: 0 0 1rem; padding: 1rem 1.25rem 1rem 3.25rem;
+	border-radius: 16px; background: #fff; box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+.woocommerce-message::before,
+.woocommerce-info::before,
+.woocommerce-error::before { left: 1.25rem; top: 1rem; margin: 0; }
+.woocommerce-error { background: #FFE7E3; }

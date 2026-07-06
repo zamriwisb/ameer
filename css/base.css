@@ -126,14 +126,6 @@ main > section { padding: clamp(3rem, 8vw, 6rem) 0; position: relative; overflow
   .footer-inner { grid-template-columns: 2fr 1fr 1fr 1fr 2fr; align-items: start; }
 }
 
-/* === Popup === */
-.popup { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: grid; place-items: center; z-index: 100; padding: 1rem; }
-.popup[hidden] { display: none; }
-.popup-card { position: relative; max-width: 480px; padding: 2rem; text-align: center; }
-.popup-close { position: absolute; top: 0.75rem; right: 0.75rem; font-size: 1.5rem; width: 32px; height: 32px; border-radius: 50%; }
-.popup-form { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
-.popup-form input { padding: 0.85rem 1rem; border-radius: 999px; border: 1px solid currentColor; }
-
 /* === Scroll reveal (only when JS is active) === */
 html.js-reveal .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
 html.js-reveal .reveal.in-view { opacity: 1; transform: none; }

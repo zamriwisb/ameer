@@ -140,37 +140,6 @@
     });
   }
 
-  // === Subscribe popup ===
-  const popup = document.getElementById('subscribePopup');
-  if (popup) {
-    const STORAGE_KEY = 'ameer_popup_dismissed';
-    const SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
-    const dismissedAt = Number(localStorage.getItem(STORAGE_KEY) || 0);
-    const isDismissed = dismissedAt && (Date.now() - dismissedAt) < SEVEN_DAYS;
-
-    const open = () => {
-      if (isDismissed) return;
-      popup.hidden = false;
-      const firstFocusable = popup.querySelector('input, button');
-      if (firstFocusable) firstFocusable.focus();
-    };
-    const close = () => {
-      popup.hidden = true;
-      localStorage.setItem(STORAGE_KEY, String(Date.now()));
-    };
-
-    const closeBtn = popup.querySelector('[data-close]');
-    if (closeBtn) closeBtn.addEventListener('click', close);
-    popup.addEventListener('click', (e) => { if (e.target === popup) close(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !popup.hidden) close(); });
-
-    if (!isDismissed) {
-      setTimeout(open, 8000);
-      document.addEventListener('mouseleave', (e) => {
-        if (e.clientY <= 0 && popup.hidden) open();
-      });
-    }
-  }
 })();
 
 (function initMobileMenu() {

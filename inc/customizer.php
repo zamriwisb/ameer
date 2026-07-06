@@ -1,7 +1,7 @@
 <?php
 /**
  * Theme Customizer: homepage singletons (hero/about/stats), contact details,
- * social links and the popup copy.
+ * social links.
  *
  * @package Ameer
  */
@@ -91,11 +91,6 @@ function ameer_customize_register( $wp_customize ) {
 	ameer_cz_url( $wp_customize, 'ameer_social_tiktok', __( 'TikTok URL', 'ameer' ), 'ameer_contact' );
 	ameer_cz_url( $wp_customize, 'ameer_social_instagram', __( 'Instagram URL', 'ameer' ), 'ameer_contact' );
 	ameer_cz_url( $wp_customize, 'ameer_social_facebook', __( 'Facebook URL', 'ameer' ), 'ameer_contact' );
-
-	/* ---- Popup ---- */
-	$wp_customize->add_section( 'ameer_popup', array( 'title' => __( 'Subscribe Popup', 'ameer' ), 'panel' => 'ameer_homepage' ) );
-	ameer_cz_html( $wp_customize, 'ameer_popup_title', __( 'Title (span allowed)', 'ameer' ), 'ameer_popup', 'Get your <span>free</span> trial kit!' );
-	ameer_cz_text( $wp_customize, 'ameer_popup_body', __( 'Body', 'ameer' ), 'ameer_popup', '', 'textarea' );
 }
 
 /* ----------------------------------------------------- Small registration helpers */

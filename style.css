@@ -1,0 +1,18 @@
+/*
+Theme Name: Ameerlittlekids
+Theme URI: https://ameernutrition.example
+Author: Web Impian
+Author URI: https://webimpian.com
+Description: Custom WooCommerce theme for Ameer — kid-first nutrition. Sunny Meadow visual system with motion. Built from the static Ameer HTML prototype.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.9
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: ameer
+Tags: ecommerce, woocommerce, custom-colors, custom-logo, custom-menu, featured-images, full-width-template
+
+This file only registers the theme. The actual layout styles live in css/base.css,
+css/sunny-v2.css, css/article-page.css and css/product-page.css (enqueued from inc/enqueue.php).
+*/

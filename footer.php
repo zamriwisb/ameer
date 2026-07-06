@@ -1,6 +1,6 @@
 <?php
 /**
- * Site footer + subscribe popup.
+ * Site footer.
  *
  * @package Ameer
  */
@@ -37,7 +37,7 @@ $ameer_fb     = get_theme_mod( 'ameer_social_facebook', '#' );
 		<?php endif; ?>
 		<div class="container footer-inner">
 			<div class="footer-brand">
-				<img src="<?php echo esc_url( AMEER_ASSETS . '/ameer-logo.png' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
+				<img src="<?php echo esc_url( AMEER_ASSETS . '/ameer-logo.webp' ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
 				<p><?php echo esc_html( $ameer_tagln ); ?></p>
 			</div>
 
@@ -110,8 +110,6 @@ $ameer_fb     = get_theme_mod( 'ameer_social_facebook', '#' );
 			</small>
 		</div>
 	</footer>
-
-	<?php get_template_part( 'template-parts/subscribe-popup' ); ?>
 
 	<?php wp_footer(); ?>
 </body>
